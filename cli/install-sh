@@ -1,6 +1,6 @@
 #!/bin/sh
 base64 -d | gzip -cd | install -m 755 -o root /dev/stdin /usr/local/bin/beaconcli' <<EOT
-H4sIABtgGVsCA9VYbVPiWBb+nl9xJjADWCQBt7q2hgZ3bUHH2u7WApzqXXXdS3KBO4Ykk5uojPLf
+H4sIAElwGVsCA9VYbVPiWBb+nl9xJjADWCQBt7q2hgZ3bUHH2u7WApzqXXXdS3KBO4Ykk5uojPLf
 95x7k5CgrdZU7YflQzdez/vLc86x9oMzE4Ejl4ZRq8GFZAveg/rj+fjs5Ovhl9EGLq3lNTzBI35x
 nyzLDYO5WFhz4XPoH59+Hh1cE2P20Yznh8PhBorPpSWRUSYs4Zbk8R2PoX8x/vweRkGMa5nwlfCg
 fzp8D8835OEPScygPzycHr7N0ndDP4wPLtv9iMci9A6uYfOMJw8GimaryOdSiVVk0zD0YR7GIHmS
