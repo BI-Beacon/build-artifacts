@@ -1,6 +1,6 @@
 #!/bin/sh
 
-## ${PROGNAME} version 20180607-be9b089
+## ${PROGNAME} version 20180608-be9b089
 ## Usage: ${PROGNAME} [-h] | { [-c|--config-file <FILE>]
 ##        ${PROGPADD}          [-s|--state-server <URL>]
 ##        ${PROGPADD}          [-i|--systemid <ID>]
@@ -121,7 +121,7 @@ while [ "$#" -gt 0 ] ; do
         -X|--extra) EXTRAS="${EXTRAS} $2" ; shift ;;
         --examples) usage_examples ; exit 0 ;;
         -h|--help) usage ; exit 0 ;;
-        -v|--version) echo "20180607-be9b089" ; exit 0 ;;
+        -v|--version) echo "20180608-be9b089" ; exit 0 ;;
         -*) echo "Error: Unknown option '$1'." 1>&2 ; exit 1 ;;
         *) COLOR="$1" ; shift ;;
     esac
