@@ -52,6 +52,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-code_examples">Code examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="index.html#java">Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#php">PHP</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-setup">Setup BI-Beacon via Wifi</a></li>
@@ -352,6 +353,44 @@ i.e. the request header Content-Type should be
       <span class="n">setColor</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
    <span class="o">}</span>
 <span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="php">
+<h3>PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">function</span> <span class="nf">bibeacon_set</span><span class="p">(</span><span class="nv">$channelid</span><span class="p">,</span> <span class="nv">$color</span><span class="p">,</span> <span class="nv">$period</span><span class="p">,</span> <span class="nv">$server</span><span class="o">=</span><span class="s2">&quot;https://api.cilamp.se/v1/&quot;</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">&#39;http&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+         <span class="s1">&#39;header&#39;</span>  <span class="o">=&gt;</span> <span class="s2">&quot;Content-type: application/x-www-form-urlencoded</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+         <span class="s1">&#39;method&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;content&#39;</span> <span class="o">=&gt;</span> <span class="nb">http_build_query</span><span class="p">(</span>
+            <span class="k">array</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="o">=&gt;</span><span class="nv">$color</span><span class="p">,</span>
+                  <span class="s2">&quot;period&quot;</span><span class="o">=&gt;</span><span class="nv">$period</span><span class="p">))</span>
+      <span class="p">)</span>
+   <span class="p">);</span>
+   <span class="nv">$context</span>  <span class="o">=</span> <span class="nb">stream_context_create</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+   <span class="nv">$result</span>   <span class="o">=</span> <span class="o">@</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="nv">$server</span><span class="o">.</span><span class="nv">$channelid</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span> <span class="nv">$result</span> <span class="o">!==</span> <span class="k">FALSE</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="nv">$result</span> <span class="o">=</span> <span class="o">@</span><span class="nb">json_decode</span><span class="p">(</span><span class="nv">$result</span><span class="p">))</span> <span class="o">!==</span> <span class="k">FALSE</span> <span class="p">)</span> <span class="p">{</span>
+         <span class="k">if</span> <span class="p">(</span> <span class="o">@</span><span class="nv">$result</span><span class="o">-&gt;</span><span class="na">message</span> <span class="o">===</span> <span class="s2">&quot;&#39;&quot;</span><span class="o">.</span><span class="nv">$channelid</span><span class="o">.</span><span class="s2">&quot;&#39; updated&quot;</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">TRUE</span><span class="p">;</span>
+         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="k">echo</span> <span class="s2">&quot;Invalid response: &quot;</span><span class="o">.</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span> <span class="p">}</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="k">echo</span> <span class="s2">&quot;Server response structure error: &quot;</span><span class="o">.</span><span class="nb">error_get_last</span><span class="p">()[</span><span class="s1">&#39;message&#39;</span><span class="p">];</span> <span class="p">}</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="k">echo</span> <span class="s2">&quot;API Request failed: &quot;</span><span class="o">.</span><span class="nb">error_get_last</span><span class="p">()[</span><span class="s1">&#39;message&#39;</span><span class="p">];</span> <span class="p">}</span>
+   <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">php_sapi_name</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;cli&quot;</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nv">$argc</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">echo</span> <span class="s2">&quot;Usage: </span><span class="si">$argv[0]</span><span class="s2"> &lt;channelid&gt; &lt;color&gt; &lt;period&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+      <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">exit</span><span class="p">((</span><span class="nx">int</span><span class="p">)</span><span class="nx">bibeacon_set</span><span class="p">(</span><span class="nv">$argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nv">$argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nv">$argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]));</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </div>
 </div>
