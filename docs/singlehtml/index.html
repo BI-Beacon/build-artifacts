@@ -78,15 +78,15 @@
 <img alt="https://api.travis-ci.org/objarni/leanmodel.svg?branch=master" src="https://api.travis-ci.org/objarni/leanmodel.svg?branch=master" />
 <p>BI-Beacons use a RESTful API.</p>
 <p>There is only one end-point: <code class="docutils literal notranslate"><span class="pre">/&lt;systemid&gt;</span></code>.</p>
-<p>This endpoint serves as the controlling mechanism for
-<em>system</em> with ID <cite>systemid</cite>.</p>
-<p>A complete endpoint URL may look something like this:</p>
+<p>This endpoint serves as the controlling mechanism for <em>system</em> with ID
+<cite>systemid</cite>.</p>
+<p>Here is an example of a complete endpoint:</p>
 <blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">https://beacon-api.abcbusiness.com/my-super-monitor</span></code></div></blockquote>
-<p>Multiple beacons can be configured to  use the same systemid - this is
+<div><code class="docutils literal notranslate"><span class="pre">https://api.cilamp.se/v1/our-beautiful-monitor</span></code></div></blockquote>
+<p>Multiple beacons can be configured to use the same systemid - this is
 intentional and means you can deploy several Beacons that indicate the
 same thing.</p>
-<p>This functionality  may, for  instance, be used  if you  have multiple
+<p>This functionality may, for  instance, be used  if you  have multiple
 offices, or if  you want a Beacon  both in the conference  room and at
 the coffee machine.</p>
 </div>
@@ -95,7 +95,8 @@ the coffee machine.</p>
 <a class="reference internal image-reference" href="_images/architecture.png"><img alt="_images/architecture.png" src="_images/architecture.png" style="width: 90%;" /></a>
 <dl class="docutils">
 <dt>BI-Beacon 1 and 2</dt>
-<dd>This is either physical or virtual BI-Beacon devices, showing some state of something interesting to your business.</dd>
+<dd>This is either physical or virtual BI-Beacon devices, showing some state
+of something interesting to your business.</dd>
 <dt>State Server</dt>
 <dd>This is the source of state for BI-Beacons.</dd>
 <dt>Caller systems</dt>
@@ -242,6 +243,13 @@ something is building or being processed.</p>
 <dt>:systemid</dt>
 <dd>This is the system identifier you want to change the state of.</dd>
 </dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>At the moment, there is only one official beacon state server.
+It is available at this URL:</p>
+<blockquote class="last">
+<div><code class="docutils literal notranslate"><span class="pre">https://api.cilamp.se/v1</span></code></div></blockquote>
+</div>
 <p><em>Note</em>: the parameters should be transmitted as URL encoded Form Data,
 i.e. the request header Content-Type should be
 <code class="docutils literal notranslate"><span class="pre">application/x-www-form-urlencoded</span></code>.</p>
@@ -312,8 +320,10 @@ i.e. the request header Content-Type should be
 </div>
 <div class="section" id="sample-curl-call">
 <h4>Sample Curl Call<a class="headerlink" href="#sample-curl-call" title="Permalink to this headline">¶</a></h4>
-<p>The following will make a POST request to the BI-Beacon state server <code class="docutils literal notranslate"><span class="pre">api.bi-beacon.se</span></code> to change the state of the system identified by <cite>testsystem</cite> to green:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">F</span> <span class="s2">&quot;color=#00FF00&quot;</span> <span class="s2">&quot;https://api.bi-beacon.se/testsystem&quot;</span>
+<p>The following will make a POST request to the BI-Beacon state server
+<code class="docutils literal notranslate"><span class="pre">api.cilamp.se</span></code> to change the state of the system identified by
+<cite>testsystem</cite> to green:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">F</span> <span class="s2">&quot;color=#00FF00&quot;</span> <span class="s2">&quot;https://api.cilamp.se/v1/testsystem&quot;</span>
 </pre></div>
 </div>
 </div>
