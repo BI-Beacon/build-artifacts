@@ -53,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-code_examples">Code examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="index.html#java">Java</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#php">PHP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#shell">shell</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-setup">Setup BI-Beacon via Wifi</a></li>
@@ -401,6 +402,16 @@ i.e. the request header Content-Type should be
    <span class="p">}</span>
 <span class="p">}</span>
 <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="shell">
+<h3>shell<a class="headerlink" href="#shell" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set a BI-Beacon to blue</span>
+curl -X POST -F <span class="s2">&quot;color=#0000FF&quot;</span> <span class="s2">&quot;https://api.cilamp.se/v1/simple-awesome-monitor&quot;</span>
+
+<span class="c1"># Pulse purple slowly</span>
+curl -X POST -F <span class="s2">&quot;color=#4400FF&quot;</span> -F <span class="s2">&quot;period=3000&quot;</span> <span class="s2">&quot;https://api.cilamp.se/v1/simple-awesome-monitor&quot;</span>
 </pre></div>
 </div>
 </div>
