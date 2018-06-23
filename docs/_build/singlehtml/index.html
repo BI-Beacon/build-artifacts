@@ -1,0 +1,590 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>BI-Beacon v0.26 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="nav-item nav-item-0"><a href="index.html#document-index">BI-Beacon v0.26 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html#document-index">Table Of Contents</a></h3>
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-api">BI-Beacon Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#architecture">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#background">Background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#idea-1-direct-cable-connections">Idea 1: direct cable connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#idea-2-dynamic-ip-addresses">Idea 2: dynamic IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#idea-3-iot-to-the-rescue">Idea 3: IoT to the rescue!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#api">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#change-state">Change state</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#parameter-examples">Parameter examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#expected-response">Expected response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#sample-curl-call">Sample Curl Call</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-code_examples">Code examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#java">Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#php">PHP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#shell">shell</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-setup">Setup BI-Beacon via Wifi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#setup-bi-beacon-via-usb">Setup BI-Beacon via USB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-repositories">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#repositories">Repositories</a></li>
+</ul>
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <a class="reference external image-reference" href="https://bi-beacon.com"><img alt="_images/bi-beacon.png" src="_images/bi-beacon.png" style="width: 80%;" /></a>
+<div class="section" id="bi-beacon-documentation">
+<h1>BI-Beacon documentation<a class="headerlink" href="#bi-beacon-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<span id="document-api"></span><div class="section" id="bi-beacon-overview">
+<h2>BI-Beacon Overview<a class="headerlink" href="#bi-beacon-overview" title="Permalink to this headline">¶</a></h2>
+<img alt="https://api.travis-ci.org/objarni/leanmodel.svg?branch=master" src="https://api.travis-ci.org/objarni/leanmodel.svg?branch=master" />
+<p>BI-Beacons use a RESTful API.</p>
+<p>There is only one end-point: <code class="docutils literal notranslate"><span class="pre">/&lt;systemid&gt;</span></code>.</p>
+<p>This endpoint serves as the controlling mechanism for <em>system</em> with ID
+<cite>systemid</cite>.</p>
+<p>Here is an example of a complete endpoint:</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">https://api.cilamp.se/v1/our-beautiful-monitor</span></code></div></blockquote>
+<p>Multiple beacons can be configured to use the same systemid - this is
+intentional and means you can deploy several Beacons that indicate the
+same thing.</p>
+<p>This functionality may, for  instance, be used  if you  have multiple
+offices, or if  you want a Beacon  both in the conference  room and at
+the coffee machine.</p>
+</div>
+<div class="section" id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/architecture.png"><img alt="_images/architecture.png" src="_images/architecture.png" style="width: 90%;" /></a>
+<dl class="docutils">
+<dt>BI-Beacon 1 and 2</dt>
+<dd>This is either physical or virtual BI-Beacon devices, showing some state
+of something interesting to your business.</dd>
+<dt>State Server</dt>
+<dd>This is the source of state for BI-Beacons.</dd>
+<dt>Caller systems</dt>
+<dd>This is the user of the Beacons - where API calls originate.</dd>
+</dl>
+<div class="section" id="background">
+<h3>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h3>
+<p>The BI-Beacon architecture is fairly straightforward, however, might need
+some explanation anyway since it is not the simplest of possible
+designs and this is intentional.</p>
+<p>So let’s begin with the simplest possible design and work our
+way from there.</p>
+<div class="section" id="idea-1-direct-cable-connections">
+<h4>Idea 1: direct cable connections<a class="headerlink" href="#idea-1-direct-cable-connections" title="Permalink to this headline">¶</a></h4>
+<p>If we want to control devices in our offices, the simplest possible
+idea would be to connect them directly to our computers.</p>
+<p>Indeed, this  is possible  with a  BI-Beacon, using  a USB  data cable
+connected  to a  wall-powered  PC, but  since  it requires  USB-serial
+device drivers, as well as the right user/device permissions on the PC
+in question, this  would actually be harder to do  than using the REST
+API over WiFi!</p>
+<p>This method also has the drawback of limiting the location of a Beacon
+to the  vicinity of a  PC. Also,  the software controlling  the Beacon
+would need to be on that PC.</p>
+</div>
+<div class="section" id="idea-2-dynamic-ip-addresses">
+<h4>Idea 2: dynamic IP addresses<a class="headerlink" href="#idea-2-dynamic-ip-addresses" title="Permalink to this headline">¶</a></h4>
+<p>The next natural step after direct connection to a PC would be
+to connect over the local network - be it over WiFi or an ethernet cable,
+giving the device a local IP.</p>
+<p>So why not use this method?</p>
+<p>Well, the reason is corporate IT networks; they’re a mess in general!</p>
+<p>Getting a  dynamic IP  by connecting  a device to  the network  is one
+thing; DHCP  is common enough  today that  it can be  generally relied
+upon, however,  what then?  If you  want to  communicate to  a (local)
+device connected to  the (local) network, you would need  to know its’
+dynamic IP address.</p>
+<p>At home, you could just login to your router (at least if your tech
+savvy enough!) and find the IP-address of the Beacon.</p>
+<p>But  at work,  unless you’re  working in  the IT  department, that  is
+typically out  of the question,  not only for “security  reasons”, but
+also due to that the IT  department most likely already have enough on
+their hands! And  getting them to configure a device  to have a static
+IP is just ..  many weeks of delivery time - time none  of us has, nor
+want to put into getting a BI-Beacon up and running.</p>
+<p>A drawback of this method is also the ‘local’ part - we cannot
+control a BI-Beacon unless we’re on the same network. Forget about
+controlling it from the cloud!</p>
+</div>
+<div class="section" id="idea-3-iot-to-the-rescue">
+<h4>Idea 3: IoT to the rescue!<a class="headerlink" href="#idea-3-iot-to-the-rescue" title="Permalink to this headline">¶</a></h4>
+<p>So, as odd as it sounds, it is actually easier to make the device
+an internet-global device instead of a local (direct cable, or
+local network) device!</p>
+<p>The trick is to have the  Beacons retrieve their respective state from
+a known  server (corporate  internal or  otherwise), via  secure HTTPs
+requests.</p>
+<p>This  means the  devices  can get  their  dynamic, local  IP-addresses
+inside of your  fine and dandy corporate network and  you address them
+indirectly  by  communicating with  the  state  server, which  resides
+either inside your corporate network  (at a well-known address) or via
+the public internet!</p>
+<p>As an integrator or user of Bi-Beacons, all you have to do is send off
+HTTPs requests  to the state  server (or  “API server” if  you prefer)
+which stores the  states and serves them to Beacons  asking what state
+to switch to.</p>
+<p>It Just Works™! :)</p>
+</div>
+</div>
+</div>
+<div class="section" id="api">
+<span id="ref-api"></span><h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<p>BI-Beacons are controlled  via a RESTful web API,  but only indirectly
+via a state  server (see <a class="reference internal" href="#architecture">Architecture</a>). This means it  is possible to
+control Beacons from any programming language that can make HTTPs POST
+requests.</p>
+<p>You configure a Beacon to continuously copy the state of a certain
+system identifier, or systemid for short. A systemid is made up of at
+least one character. Allowed characters classes are small and big
+english letters, digits, underscore and dash, or put in regex form:</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">[a-zA-Z0-9_-]+</span></code></div></blockquote>
+<p>A systemid can be up to 255 characters long.</p>
+<p>Several Beacons may use the same system identifier; they will then
+show the same state.</p>
+<p><em>Note:</em> The systemid can be viewed as the access key of the Beacon,
+as it is all that is needed to control a device. So make sure you
+only share the systemid with those persons and systems that should
+be able to control the device. Do not store it publicly unless you
+want anyone to be able to change the state of your Beacon.</p>
+<p>If you want to add some security, randomize a string of at least 30
+letters and numbers and use that as the system identifier.</p>
+<p>A system can be in one of two states:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">State</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>static</td>
+<td>BI-Beacon will show a constant color</td>
+</tr>
+<tr class="row-odd"><td>pulsing</td>
+<td>BI-Beacons will pulse with a given speed and color</td>
+</tr>
+</tbody>
+</table>
+<p><em>Static colors</em> give the impression of the state of a system or process,
+e.g. on or off, ready or failed.</p>
+<p><em>Pulsing colors</em> give the impression of something happening, e.g.
+something is building or being processed.</p>
+<p>The significance of individual colors and pulses is up to your imagination.</p>
+<div class="section" id="change-state">
+<h3>Change state<a class="headerlink" href="#change-state" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><p class="first"><code class="docutils literal notranslate"><span class="pre">https://:beacon-server/v1/:systemid/</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Method:</th><td class="field-body"><p class="first">POST</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>{</dt>
+<dd><p class="first"><strong>color:</strong> color specification (format “#RRGGBB”)</p>
+<p class="last"><strong>period:</strong> length of the pulse in milliseconds (optional, format integer)</p>
+</dd>
+</dl>
+<p class="last">}</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>:beacon-server</dt>
+<dd>This is the hostname of the state server.</dd>
+<dt>:systemid</dt>
+<dd>This is the system identifier you want to change the state of.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>At the moment, there is only one official beacon state server.
+It is available at this URL:</p>
+<blockquote class="last">
+<div><code class="docutils literal notranslate"><span class="pre">https://api.cilamp.se/v1</span></code></div></blockquote>
+</div>
+<p><em>Note</em>: the parameters should be transmitted as URL encoded Form Data,
+i.e. the request header Content-Type should be
+<code class="docutils literal notranslate"><span class="pre">application/x-www-form-urlencoded</span></code>.</p>
+<div class="section" id="parameter-examples">
+<h4>Parameter examples<a class="headerlink" href="#parameter-examples" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Purpose:</th><td class="field-body">Set beacon to green</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">color</span><span class="p">:</span> <span class="s2">&quot;#00FF00&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Purpose:</th><td class="field-body">Set beacon to red and pulse once per second</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">color</span><span class="p">:</span> <span class="s2">&quot;#FF0000&quot;</span>
+    <span class="n">period</span><span class="p">:</span> <span class="mi">1000</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="expected-response">
+<h4>Expected response<a class="headerlink" href="#expected-response" title="Permalink to this headline">¶</a></h4>
+<p>On success</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Code:</th><td class="field-body">200</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Body:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&#39;:systemid&#39; updated&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>On error</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Code:</th><td class="field-body">400</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Body:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;error message&gt;&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-curl-call">
+<h4>Sample Curl Call<a class="headerlink" href="#sample-curl-call" title="Permalink to this headline">¶</a></h4>
+<p>The following will make a POST request to the BI-Beacon state server
+<code class="docutils literal notranslate"><span class="pre">api.cilamp.se</span></code> to change the state of the system identified by
+<cite>testsystem</cite> to green:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">F</span> <span class="s2">&quot;color=#00FF00&quot;</span> <span class="s2">&quot;https://api.cilamp.se/v1/testsystem&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<span id="document-code_examples"></span><div class="section" id="code-examples">
+<h2>Code examples<a class="headerlink" href="#code-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="java">
+<h3>Java<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.OutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URLConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">setBeacon</span> <span class="o">{</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">setColor</span><span class="o">(</span> <span class="n">String</span> <span class="n">systemid</span><span class="o">,</span> <span class="n">String</span> <span class="n">color</span> <span class="o">)</span> <span class="o">{</span>
+      <span class="k">try</span> <span class="o">{</span>
+         <span class="n">URLConnection</span> <span class="n">connection</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">&quot;https://api.cilamp.se/v1/&quot;</span> <span class="o">+</span> <span class="n">systemid</span><span class="o">).</span><span class="na">openConnection</span><span class="o">();</span>
+         <span class="n">connection</span><span class="o">.</span><span class="na">setDoOutput</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+         <span class="n">connection</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">&quot;Content-Type&quot;</span><span class="o">,</span> <span class="s">&quot;application/x-www-form-urlencoded&quot;</span><span class="o">);</span>
+         <span class="n">OutputStream</span> <span class="n">output</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
+         <span class="n">output</span><span class="o">.</span><span class="na">write</span><span class="o">((</span><span class="s">&quot;color=&quot;</span> <span class="o">+</span> <span class="n">color</span><span class="o">).</span><span class="na">getBytes</span><span class="o">());</span>
+         <span class="n">InputStream</span> <span class="n">response</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+      <span class="o">}</span> <span class="k">catch</span><span class="o">(</span> <span class="n">Exception</span> <span class="n">e</span> <span class="o">)</span> <span class="o">{</span>
+         <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="n">e</span> <span class="o">);</span>
+         <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+      <span class="o">}</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="c1">// Usage: &lt;systemid&gt; &lt;color&gt;</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+      <span class="n">setColor</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="php">
+<h3>PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">function</span> <span class="nf">bibeacon_set</span><span class="p">(</span><span class="nv">$channelid</span><span class="p">,</span> <span class="nv">$color</span><span class="p">,</span> <span class="nv">$period</span><span class="p">,</span> <span class="nv">$server</span><span class="o">=</span><span class="s2">&quot;https://api.cilamp.se/v1/&quot;</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">&#39;http&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+         <span class="s1">&#39;header&#39;</span>  <span class="o">=&gt;</span> <span class="s2">&quot;Content-type: application/x-www-form-urlencoded</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+         <span class="s1">&#39;method&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;content&#39;</span> <span class="o">=&gt;</span> <span class="nb">http_build_query</span><span class="p">(</span>
+            <span class="k">array</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="o">=&gt;</span><span class="nv">$color</span><span class="p">,</span>
+                  <span class="s2">&quot;period&quot;</span><span class="o">=&gt;</span><span class="nv">$period</span><span class="p">))</span>
+      <span class="p">)</span>
+   <span class="p">);</span>
+   <span class="nv">$context</span>  <span class="o">=</span> <span class="nb">stream_context_create</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+   <span class="nv">$result</span>   <span class="o">=</span> <span class="o">@</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="nv">$server</span><span class="o">.</span><span class="nv">$channelid</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span> <span class="nv">$result</span> <span class="o">!==</span> <span class="k">FALSE</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="nv">$result</span> <span class="o">=</span> <span class="o">@</span><span class="nb">json_decode</span><span class="p">(</span><span class="nv">$result</span><span class="p">))</span> <span class="o">!==</span> <span class="k">FALSE</span> <span class="p">)</span> <span class="p">{</span>
+         <span class="k">if</span> <span class="p">(</span> <span class="o">@</span><span class="nv">$result</span><span class="o">-&gt;</span><span class="na">message</span> <span class="o">===</span> <span class="s2">&quot;&#39;&quot;</span><span class="o">.</span><span class="nv">$channelid</span><span class="o">.</span><span class="s2">&quot;&#39; updated&quot;</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">TRUE</span><span class="p">;</span>
+         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="k">echo</span> <span class="s2">&quot;Invalid response: &quot;</span><span class="o">.</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span> <span class="p">}</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="k">echo</span> <span class="s2">&quot;Server response structure error: &quot;</span><span class="o">.</span><span class="nb">error_get_last</span><span class="p">()[</span><span class="s1">&#39;message&#39;</span><span class="p">];</span> <span class="p">}</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="k">echo</span> <span class="s2">&quot;API Request failed: &quot;</span><span class="o">.</span><span class="nb">error_get_last</span><span class="p">()[</span><span class="s1">&#39;message&#39;</span><span class="p">];</span> <span class="p">}</span>
+   <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">php_sapi_name</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;cli&quot;</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nv">$argc</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">echo</span> <span class="s2">&quot;Usage: </span><span class="si">$argv[0]</span><span class="s2"> &lt;channelid&gt; &lt;color&gt; &lt;period&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+      <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">exit</span><span class="p">((</span><span class="nx">int</span><span class="p">)</span><span class="nx">bibeacon_set</span><span class="p">(</span><span class="nv">$argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nv">$argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nv">$argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]));</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="shell">
+<h3>shell<a class="headerlink" href="#shell" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set a BI-Beacon to blue</span>
+curl -X POST -F <span class="s2">&quot;color=#0000FF&quot;</span> <span class="s2">&quot;https://api.cilamp.se/v1/simple-awesome-monitor&quot;</span>
+
+<span class="c1"># Pulse purple slowly</span>
+curl -X POST -F <span class="s2">&quot;color=#4400FF&quot;</span> -F <span class="s2">&quot;period=3000&quot;</span> <span class="s2">&quot;https://api.cilamp.se/v1/simple-awesome-monitor&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<span id="document-setup"></span><div class="section" id="setup-bi-beacon-via-wifi">
+<h2>Setup BI-Beacon via Wifi<a class="headerlink" href="#setup-bi-beacon-via-wifi" title="Permalink to this headline">¶</a></h2>
+<p>You can setup a BI-Beacon using a mobile or desktop device that connects to the Beacons own setup web page.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Instructions</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="_images/wifisetup_1.png"><img alt="image1" src="_images/wifisetup_1.png" style="width: 100%;" /></a></td>
+<td><ol class="first last arabic simple">
+<li>Plugin your BI-Beacon (it turns blue)</li>
+<li>Disable mobile network (if on mobile device)</li>
+<li>Wait up to 30 seconds until BI-Beacon starts
+shifting in slowly between blue and green
+(it means setup mode is active)</li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="_images/wifisetup_2.png"><img alt="image2" src="_images/wifisetup_2.png" style="width: 100%;" /></a></td>
+<td><ol class="first last arabic simple" start="4">
+<li>Connect to WiFi “BI-Beacon-A1B2C3” (A1B2C3
+is unique for your lamp)</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="_images/wifisetup_3.png"><img alt="image3" src="_images/wifisetup_3.png" style="width: 100%;" /></a></td>
+<td><ol class="first last arabic" start="5">
+<li><p class="first">Browse to BI-Beacon’s Setup Page:
+<a class="reference external" href="http://192.168.4.1">http://192.168.4.1</a></p>
+</li>
+<li><p class="first">Enter details</p>
+<p>a. WiFi name: the WiFi lamp should connect
+to (SSID)
+b. WiFi password: password of WiFi to connect
+to (empty if no password)
+c. Systemid: the string identifier controlling
+the beacon state (see <a class="reference internal" href="index.html#ref-api"><span class="std std-ref">API</span></a>)</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="_images/wifisetup_4.png"><img alt="image4" src="_images/wifisetup_4.png" style="width: 100%;" /></a></td>
+<td><ol class="first last arabic simple" start="7">
+<li>Wait for green<ol class="loweralpha">
+<li>It will first turn blue which means it is
+connecting to router</li>
+<li>Then it will turn purple which means it is
+connecting to state server</li>
+<li>Then it will turn green when connected</li>
+</ol>
+</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>To reset or reconfigure a BI-Beacon, reboot it whilst it cannot
+connect to the router. E.g by doing any of the following:</p>
+<ol class="arabic simple">
+<li>Change SSID or password on the router</li>
+<li>Turn off the router temporarily</li>
+<li>Move the BI-Beacon far away from the router</li>
+</ol>
+<p class="last">When you plug it in again, BI-Beacon will try to connect and
+fail. It will then go into setup mode again.</p>
+</div>
+</div>
+<div class="section" id="setup-bi-beacon-via-usb">
+<h2>Setup BI-Beacon via USB<a class="headerlink" href="#setup-bi-beacon-via-usb" title="Permalink to this headline">¶</a></h2>
+<p>You can also setup a BI-Beacon using a USB data cable, however this requires
+that you are on a Linux machine with a user in the <cite>dialout</cite> usergroup.</p>
+<p>Clone the cli repo (see <a class="reference internal" href="index.html#ref-repositories"><span class="std std-ref">Repositories</span></a>).</p>
+<p>Then, in a terminal of your choice,</p>
+<blockquote>
+<div>$ python config_via_usb.py &lt;ssid&gt; &lt;password&gt; &lt;systemid&gt;</div></blockquote>
+</div>
+<span id="document-repositories"></span><div class="section" id="how-to-contribute">
+<h2>How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h2>
+<p>BI-Beacon is partially open source; see the following table on what is and what is not
+open.</p>
+<p>Any contributions on any of the open source projects are welcome!</p>
+</div>
+<div class="section" id="repositories">
+<span id="ref-repositories"></span><h2>Repositories<a class="headerlink" href="#repositories" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="15%" />
+<col width="38%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">What</th>
+<th class="head">Open source?</th>
+<th class="head">Comment</th>
+<th class="head">Link</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Docs</td>
+<td>Yes</td>
+<td>The REST protocol to control Beacons
+(and everything surrounding it)</td>
+<td><a class="reference external" href="https://github.com/BI-Beacon/docs">Documentation repository</a></td>
+</tr>
+<tr class="row-odd"><td>CLI</td>
+<td>Yes</td>
+<td>Comman Line Utilities</td>
+<td><a class="reference external" href="https://github.com/BI-Beacon/cli">Command Line Utilities repository</a></td>
+</tr>
+<tr class="row-even"><td>Server</td>
+<td>Yes</td>
+<td>The state server</td>
+<td><a class="reference external" href="https://github.com/BI-Beacon/server">Server repository</a></td>
+</tr>
+<tr class="row-odd"><td>Virtual
+Beacon</td>
+<td>Yes</td>
+<td>The virtual Beacon</td>
+<td><a class="reference external" href="https://github.com/BI-Beacon/virtual-beacon">Virtual beacon repository</a></td>
+</tr>
+<tr class="row-even"><td>Artifacts</td>
+<td>Yes
+(but read only)</td>
+<td>Automatically generated content from
+the other repositories</td>
+<td><a class="reference external" href="https://github.com/BI-Beacon/build-artifacts">Build Artifacts repository</a></td>
+</tr>
+<tr class="row-odd"><td>Firmware</td>
+<td>No</td>
+<td>The software running on physical
+BI-Beacons</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="nav-item nav-item-0"><a href="index.html#document-index">BI-Beacon v0.26 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Olof Bjarnason.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>
