@@ -6,15 +6,17 @@ Java
 
 .. code-block:: java
 
+   all:
+   	javac se/bibeacon/examples/java/SetBeacon.java
+   package se.bibeacon.examples.java;
+   
    import java.io.IOException;
    import java.io.InputStream;
    import java.io.OutputStream;
-   import java.net.HttpURLConnection;
    import java.net.URL;
    import java.net.URLConnection;
-   import java.util.Map;
    
-   public class setBeacon {
+   public class SetBeacon {
    
       public static boolean setColor( String systemid, String color ) {
          try {
@@ -44,6 +46,8 @@ PHP
 
 .. code-block:: php
 
+   all:
+   
    <?php
    
    function bibeacon_set($channelid, $color, $period, $server="https://api.cilamp.se/v1/") {
@@ -84,6 +88,12 @@ shell
 
 .. code-block:: shell
 
+   all:	tests
+   
+   tests:
+   	shellcheck *.sh
+   #!/bin/sh
+   
    # Set a BI-Beacon to blue
    curl -X POST -F "color=#0000FF" "https://api.cilamp.se/v1/simple-awesome-monitor"
    
