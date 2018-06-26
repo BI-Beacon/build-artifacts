@@ -5,6 +5,8 @@ BI-Beacon Overview
 
 .. image:: https://api.travis-ci.org/objarni/leanmodel.svg?branch=master
 
+.. image:: https://sonarcloud.io/api/project_badges/measure?project=bibeacon-code-examples&metric=alert_status
+
 BI-Beacons use a RESTful API.
 
 There is only one end-point: ``/<systemid>``.
