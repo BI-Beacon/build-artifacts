@@ -29,8 +29,21 @@ the coffee machine.
 Architecture
 ============
 
-.. image:: _static/architecture.png
-    :width: 90%
+.. graphviz::
+
+    digraph bibeacon_architecture {
+
+        bibeacon_1 [ label="BI-Beacon\n1" ]
+        bibeacon_2 [ label="BI-Beacon\n2" ]
+        LAN_caller [ label="LAN\ncaller" ]
+        Cloud_caller [ label="Cloud\ncaller" ]
+        state_server [ label="State server" ]
+
+        bibeacon_1 -> state_server
+        bibeacon_2 -> state_server
+        LAN_caller -> state_server
+        Cloud_caller -> state_server
+    }
 
 BI-Beacon 1 and 2
     This is either physical or virtual BI-Beacon devices, showing some state

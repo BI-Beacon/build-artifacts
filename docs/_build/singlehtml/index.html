@@ -93,7 +93,19 @@ the coffee machine.</p>
 </div>
 <div class="section" id="architecture">
 <h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/architecture.png"><img alt="_images/architecture.png" src="_images/architecture.png" style="width: 90%;" /></a>
+<img src="_images/graphviz-2f6ef142c6f7f247294a52018c4d756910de2a54.png" alt="digraph bibeacon_architecture {
+
+    bibeacon_1 [ label=&quot;BI-Beacon\n1&quot; ]
+    bibeacon_2 [ label=&quot;BI-Beacon\n2&quot; ]
+    LAN_caller [ label=&quot;LAN\ncaller&quot; ]
+    Cloud_caller [ label=&quot;Cloud\ncaller&quot; ]
+    state_server [ label=&quot;State server&quot; ]
+
+    bibeacon_1 -&gt; state_server
+    bibeacon_2 -&gt; state_server
+    LAN_caller -&gt; state_server
+    Cloud_caller -&gt; state_server
+}" />
 <dl class="docutils">
 <dt>BI-Beacon 1 and 2</dt>
 <dd>This is either physical or virtual BI-Beacon devices, showing some state
