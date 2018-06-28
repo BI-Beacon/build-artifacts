@@ -19,7 +19,7 @@ BI-Beacon documentation
   api
   code_examples
   setup
-  repositories
+  devguide
 
 
 Indices and tables
