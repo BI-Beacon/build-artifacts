@@ -7,7 +7,20 @@ BI-Beacon Overview
 
 .. image:: https://sonarcloud.io/api/project_badges/measure?project=bibeacon-code-examples&metric=alert_status
 
-BI-Beacons use a RESTful API.
+This is the official documentation for Business Intelligence Beacon.
+The primary focus of this documentation is the API to control Beacons,
+however it also includes information on how to configure and control
+devices from different programming languages and tooling around the
+project.
+
+.. tip::
+
+    You can read more about the concept behind BI-beacon on the
+    official home page:
+
+    https://bi-beacon.com
+
+In a nutshell: BI-Beacons use a RESTful API.
 
 There is only one end-point: ``/<systemid>``.
 
