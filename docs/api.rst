@@ -9,9 +9,9 @@ BI-Beacon Overview
 
 This is the official documentation for Business Intelligence Beacon.
 The primary focus of this documentation is the API to control Beacons,
-however it also includes information on how to configure and control
-devices from different programming languages and tooling around the
-project.
+however it also includes information on how to configure devices,
+and control code examples in different programming languages, as well
+as tooling around the project.
 
 .. tip::
 
