@@ -1,5 +1,5 @@
-9a902b9bad1773a7dc102fc06d85258017649711  ./cli/beaconcli
-fdfef84c5dcd2e8cae59fc61e176c9ae98b11657  ./cli/install-sh
+4cd512f2fb4469c7a0a4c809ae561581ad535974  ./cli/beaconcli
+81321cbc54cf1764d1af929eeb9f88fdf8f0343d  ./cli/install-sh
 54a8654ec34f839a20d43cc289bf7108d2b55f3b  ./docs/api.rst
 7abdd65f963f4055450b5e34086c6963f55f5613  ./docs/_build/doctrees/api.doctree
 478ae3842785884d9f34273e8d2657fb97c8b746  ./docs/_build/doctrees/code_examples.doctree
