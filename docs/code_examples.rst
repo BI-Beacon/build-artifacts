@@ -135,6 +135,7 @@ BI beacon
    module.exports = Beacon;
    
    all:
+   
    {
      "name": "bi-beacon",
      "version": "1.0.0",
