@@ -41,10 +41,10 @@ Java
 
 
 
-BI beacon
----------
+JavaScript
+----------
 
-.. code-block:: bi beacon
+.. code-block:: javascript
 
    /*
    
