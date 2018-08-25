@@ -370,7 +370,6 @@ i.e. the request header Content-Type should be
      <span class="n">javac</span> <span class="n">se</span><span class="o">/</span><span class="n">bibeacon</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">java</span><span class="o">/</span><span class="n">SetBeacon</span><span class="o">.</span><span class="na">java</span>
 <span class="kn">package</span> <span class="nn">se.bibeacon.examples.java</span><span class="o">;</span>
 
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.OutputStream</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
@@ -385,16 +384,15 @@ i.e. the request header Content-Type should be
          <span class="n">connection</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">&quot;Content-Type&quot;</span><span class="o">,</span> <span class="s">&quot;application/x-www-form-urlencoded&quot;</span><span class="o">);</span>
          <span class="n">OutputStream</span> <span class="n">output</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
          <span class="n">output</span><span class="o">.</span><span class="na">write</span><span class="o">((</span><span class="s">&quot;color=&quot;</span> <span class="o">+</span> <span class="n">color</span><span class="o">).</span><span class="na">getBytes</span><span class="o">());</span>
-         <span class="n">InputStream</span> <span class="n">response</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+         <span class="n">connection</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
       <span class="o">}</span> <span class="k">catch</span><span class="o">(</span> <span class="n">Exception</span> <span class="n">e</span> <span class="o">)</span> <span class="o">{</span>
-         <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="n">e</span> <span class="o">);</span>
          <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
       <span class="o">}</span>
       <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
    <span class="o">}</span>
 
    <span class="c1">// Usage: &lt;systemid&gt; &lt;color&gt;</span>
-   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
       <span class="n">setColor</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
    <span class="o">}</span>
 <span class="o">}</span>
@@ -751,7 +749,7 @@ BI-Beacons</td>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Olof Bjarnason.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.7.
     </div>
   </body>
 </html>
