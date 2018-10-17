@@ -61,6 +61,11 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 |            |                                                        |
 +------------+--------------------------------------------------------+
 
+If you have any issues, please refer to troubleshooting_.
+
+.. _troubleshooting: https://cilamp.se/setup-guide/#1498746921926-4127dd4e-44a5
+
+
 
 .. note:: To reset or reconfigure a BI-Beacon, reboot it whilst it cannot
           connect to the router. E.g by doing any of the following:
