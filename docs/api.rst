@@ -117,7 +117,7 @@ upon, however,  what then?  If you  want to  communicate to  a (local)
 device connected to  the (local) network, you would need  to know its'
 dynamic IP address.
 
-At home, you could just login to your router (at least if your tech
+At home, you could just login to your router (at least if you are tech
 savvy enough!) and find the IP-address of the Beacon.
 
 But  at work,  unless you're  working in  the IT  department, that  is
