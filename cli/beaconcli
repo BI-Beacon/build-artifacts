@@ -1,6 +1,6 @@
 #!/bin/sh
 
-## ${PROGNAME} version 20190102-d138dfb
+## ${PROGNAME} version 20190104-b62164e
 ## Usage: ${PROGNAME} [-h] | { [-c|--config-file <FILE>]
 ##        ${PROGPADD}          [-s|--state-server <URL>]
 ##        ${PROGPADD}          [-k|--channelkey <KEY>]
@@ -121,7 +121,7 @@ while [ "$#" -gt 0 ] ; do
         -X|--extra) EXTRAS="${EXTRAS} $2" ; shift ;;
         --examples) usage_examples ; exit 0 ;;
         -h|--help) usage ; exit 0 ;;
-        -v|--version) echo "20190102-d138dfb" ; exit 0 ;;
+        -v|--version) echo "20190104-b62164e" ; exit 0 ;;
         -*) echo "Error: Unknown option '$1'." 1>&2 ; exit 1 ;;
         *) COLOR="$1" ; shift ;;
     esac
