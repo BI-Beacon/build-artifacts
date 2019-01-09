@@ -19,8 +19,7 @@ as tooling around the project.
 
     https://bi-beacon.com
 
-    And, of course, support the project by getting your own Beacon
-    in the web shop!
+    Want to get one for your company? Visit the web shop, available here:
 
     https://bi-beacon.se
 
