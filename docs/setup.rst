@@ -27,13 +27,13 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 |  |image1|  | 1. Plugin your BI-Beacon (it turns blue)               |
 |            | 2. Disable mobile network (if on mobile device)        |
 |            | 3. Wait up to 30 seconds until BI-Beacon starts        |
-|            |    shifting in slowly between blue and green           |
-|            |    (it means setup mode is active)                     |
+|            |    shifting slowly between blue and green              |
+|            |    (this means setup mode is active)                   |
 |            |                                                        |
 +------------+--------------------------------------------------------+
 |  |image2|  |                                                        |
 |            | 4. Connect to WiFi “BI-Beacon-A1B2C3” (A1B2C3          |
-|            |    is unique for your lamp)                            |
+|            |    is unique for your Beacon)                          |
 |            |                                                        |
 +------------+--------------------------------------------------------+
 |  |image3|  |                                                        |
@@ -43,11 +43,24 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 |            | 6. Enter details                                       |
 |            |                                                        |
 |            |    a. WiFi name: the WiFi lamp should connect          |
-|            |    to (SSID)                                           |
+|            |    to (also known as SSID)                             |
+|            |                                                        |
 |            |    b. WiFi password: password of WiFi to connect       |
-|            |    to (empty if no password)                           |
-|            |    c. Systemid: the string identifier controlling      |
-|            |    the beacon state (see :ref:`ref_api`)               |
+|            |    to (leave empty if no password)                     |
+|            |                                                        |
+|            |    c. Channel key: the string identifier controlling   |
+|            |    the beacon state                                    |
+|            |     (read more in the  :ref:`ref_api` section)         |
+|            |                                                        |
+|            |    *Optional settings available from firmware version  |
+|            |    0.84 and upwards:*                                  |
+|            |                                                        |
+|            |    d. State server: The channel state server to connect|
+|            |    to.                                                 |
+|            |    Default: api.cilamp.se                              |
+|            |                                                        |
+|            |    e. Port: The TCP port to connect to on              |
+|            |    the channel state server. Default: 4040.            |
 |            |                                                        |
 +------------+--------------------------------------------------------+
 |  |image4|  |                                                        |
@@ -55,8 +68,10 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 |            |                                                        |
 |            |     a. It will first turn blue which means it is       |
 |            |        connecting to router                            |
+|            |                                                        |
 |            |     b. Then it will turn purple which means it is      |
 |            |        connecting to state server                      |
+|            |                                                        |
 |            |     c. Then it will turn green when connected          |
 |            |                                                        |
 +------------+--------------------------------------------------------+
@@ -88,5 +103,5 @@ Clone the cli repo (see :ref:`ref_repositories`).
 
 Then, in a terminal of your choice,
 
-   $ python config_via_usb.py <ssid> <password> <systemid>
+   $ python config_via_usb.py <ssid> <password> <channelkey> [stateserver] [port]
 

@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = 'BI-Beacon'
-copyright = '2018, Olof Bjarnason'
+copyright = '2018-2019, Olof Bjarnason'
 author = 'Olof Bjarnason'
 
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = 'v0.50'
+release = 'v0.55'
 
 
 # -- General configuration ---------------------------------------------------

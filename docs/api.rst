@@ -15,29 +15,41 @@ as tooling around the project.
 
 .. tip::
 
-    You can read more about the concept behind BI-beacon on the
-    official home page:
+    Read more about the ideas behind BI-beacon on the concept page:
 
     https://bi-beacon.com
 
+    And, of course, support the project by getting your own Beacon
+    in the web shop!
+
+    https://bi-beacon.se
+
 In a nutshell: BI-Beacons use a RESTful API.
 
-There is only one end-point: ``/<systemid>``.
+There is only one end-point: ``/<channelkey>``.
 
-This endpoint serves as the controlling mechanism for *system* with ID
-`systemid`.
+This endpoint serves as the controlling mechanism for *channel* with ID
+`channelkey`.
 
 Here is an example of a complete endpoint:
 
    ``https://api.cilamp.se/v1/our-beautiful-monitor``
 
 
-Multiple beacons can be configured to use the same systemid - this is
-intentional and means you can deploy several Beacons that indicate the
-same thing.
+.. note::
 
-This functionality may, for  instance, be used  if you  have multiple
-offices, or if  you want a Beacon  both in the conference  room and at
+    `channel key` used to be called `systemid`, so if you see the old name
+    somewhere - please give us a shout and we'll fix it! Or even better,
+    fork the docs repo, fix the mistake and make a pull request! :)
+
+    Repo found on GitHub here `Documentation repository`_.
+
+Multiple beacons can be configured to copy the state of the same channel -
+this is intentional and means you can deploy several Beacons that indicate
+the same thing.
+
+This functionality may, for  instance, be used if you have multiple
+offices, or if you want a Beacon both in the conference room and at
 the coffee machine.
 
 
@@ -168,27 +180,31 @@ control Beacons from any programming language that can make HTTPs POST
 requests.
 
 You configure a Beacon to continuously copy the state of a certain
-system identifier, or systemid for short. A systemid is made up of at
-least one character. Allowed characters classes are small and big
+channel, identified by a string. A channel key is made up of at
+least eight characters. Allowed characters classes are small and big
 english letters, digits, underscore and dash, or put in regex form:
 
-        ``[a-zA-Z0-9_-]+``
+        ``[a-zA-Z0-9_-]{8,255}``
 
-A systemid can be up to 255 characters long.
+A channel key can be 8 to 255 characters long.
+
+.. note::
+    `channel key` used to be called `systemid`.
 
 Several Beacons may use the same system identifier; they will then
 show the same state.
 
-*Note:* The systemid can be viewed as the access key of the Beacon,
+*Note:* The channel key can be viewed as the access key of the Beacon,
 as it is all that is needed to control a device. So make sure you
-only share the systemid with those persons and systems that should
-be able to control the device. Do not store it publicly unless you
-want anyone to be able to change the state of your Beacon.
+only share the channel key with people and systems that should
+be able to control the device. Do not store it publicly (unless you
+want anyone to be able to change the state of your Beacon, which
+could be fun but probably not your most common use case!)
 
-If you want to add some security, randomize a string of at least 30
-letters and numbers and use that as the system identifier.
+If you want to add some security, randomize a string of at least 20
+letters and numbers and use that as channel key.
 
-A system can be in one of two states:
+A channel can be in one of two states:
 
 +---------+--------------------------------------------------------+
 | State   |  Meaning                                               |
@@ -209,7 +225,7 @@ The significance of individual colors and pulses is up to your imagination.
 Change state
 ------------
 
-:URL:       ``https://:beacon-server/v1/:systemid/``
+:URL:       ``https://:beacon-server/v1/:channelkey/``
 
 :Method:    POST
 
@@ -224,8 +240,8 @@ Change state
 :beacon-server
     This is the hostname of the state server.
 
-:systemid
-    This is the system identifier you want to change the state of.
+:channelkey
+    This string identifies the channel you want to change the state of.
 
 .. note:: At the moment, there is only one official beacon state server.
           It is available at this URL:
@@ -271,7 +287,7 @@ On success
 
 ::
 
-    {"message": "':systemid' updated"}
+    {"message": "':channelkey' updated"}
 
 On error
 
@@ -287,10 +303,12 @@ Sample Curl Call
 ~~~~~~~~~~~~~~~~
 
 The following will make a POST request to the BI-Beacon state server
-``api.cilamp.se`` to change the state of the system identified by
-`testsystem` to green:
+``api.cilamp.se`` to change the state of the channel named
+`testchannel` to green:
 
 ::
 
-    curl -X POST -F "color=#00FF00" "https://api.cilamp.se/v1/testsystem"
+    curl -X POST -F "color=#00FF00" "https://api.cilamp.se/v1/testchannel"
 
+
+.. _`Documentation repository`: https://github.com/BI-Beacon/docs
