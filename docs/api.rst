@@ -174,13 +174,20 @@ It Just Works™! :)
 API
 ===
 
+There is only one endpoint! Hurray!
+
+And it looks something like this:
+
+   ``https://api.cilamp.se/v1/our-beautiful-monitor``
+
 BI-Beacons are controlled  via a RESTful web API,  but only indirectly
 via a state  server (see Architecture_). This means it  is possible to
 control Beacons from any programming language that can make HTTPs POST
 requests.
 
 You configure a Beacon to continuously copy the state of a certain
-channel, identified by a string. A channel key is made up of at
+channel, identified by a string called *channel key*.
+A channel key is made up of at
 least eight characters. Allowed characters classes are small and big
 english letters, digits, underscore and dash, or put in regex form:
 
@@ -191,10 +198,11 @@ A channel key can be 8 to 255 characters long.
 .. note::
     `channel key` used to be called `systemid`.
 
-Several Beacons may use the same system identifier; they will then
-show the same state.
+Several Beacons may use the same channel; they will then
+show the same state, which is great if you have a large office,
+or work at an international company.
 
-*Note:* The channel key can be viewed as the access key of the Beacon,
+The channel key may be viewed as the access key of the Beacon,
 as it is all that is needed to control a device. So make sure you
 only share the channel key with people and systems that should
 be able to control the device. Do not store it publicly (unless you
@@ -209,9 +217,10 @@ A channel can be in one of two states:
 +---------+--------------------------------------------------------+
 | State   |  Meaning                                               |
 +=========+========================================================+
-| static  | BI-Beacon will show a constant color                   |
+| static  | Connected Beacons will show a constant color           |
 +---------+--------------------------------------------------------+
-| pulsing | BI-Beacons will pulse with a given speed and color     |
+| pulsing | Connected Beacons will pulse with                      |
+|         | given speed and color                                  |
 +---------+--------------------------------------------------------+
 
 *Static colors* give the impression of the state of a system or process,
@@ -220,7 +229,7 @@ e.g. on or off, ready or failed.
 *Pulsing colors* give the impression of something happening, e.g.
 something is building or being processed.
 
-The significance of individual colors and pulses is up to your imagination.
+The meaning of individual colors and pulses is up to your imagination.
 
 Change state
 ------------
@@ -237,6 +246,10 @@ Change state
       **period:** length of the pulse in milliseconds (optional, format integer)
     }
 
+Make sure the parameters are be transmitted as URL encoded Form Data,
+i.e. the request header Content-Type should be
+``application/x-www-form-urlencoded``.
+
 :beacon-server
     This is the hostname of the state server.
 
@@ -248,11 +261,12 @@ Change state
 
              ``https://api.cilamp.se/v1``
 
+          The state server will be available as open source software
+          in June 2019, see `Announcement: Open source server in June`_.
 
-*Note*: the parameters should be transmitted as URL encoded Form Data,
-i.e. the request header Content-Type should be
-``application/x-www-form-urlencoded``.
 
+
+.. _`Announcement: Open source server in June`: https://bi-beacon.se/announcement-open-source-api-server-coming-in-june/
 
 Parameter examples
 ~~~~~~~~~~~~~~~~~~

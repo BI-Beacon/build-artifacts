@@ -214,12 +214,17 @@ to switch to.</p>
 </div>
 <div class="section" id="api">
 <span id="ref-api"></span><h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<p>There is only one endpoint! Hurray!</p>
+<p>And it looks something like this:</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">https://api.cilamp.se/v1/our-beautiful-monitor</span></code></div></blockquote>
 <p>BI-Beacons are controlled  via a RESTful web API,  but only indirectly
 via a state  server (see <a class="reference internal" href="#architecture">Architecture</a>). This means it  is possible to
 control Beacons from any programming language that can make HTTPs POST
 requests.</p>
 <p>You configure a Beacon to continuously copy the state of a certain
-channel, identified by a string. A channel key is made up of at
+channel, identified by a string called <em>channel key</em>.
+A channel key is made up of at
 least eight characters. Allowed characters classes are small and big
 english letters, digits, underscore and dash, or put in regex form:</p>
 <blockquote>
@@ -229,9 +234,10 @@ english letters, digits, underscore and dash, or put in regex form:</p>
 <p class="first admonition-title">Note</p>
 <p class="last"><cite>channel key</cite> used to be called <cite>systemid</cite>.</p>
 </div>
-<p>Several Beacons may use the same system identifier; they will then
-show the same state.</p>
-<p><em>Note:</em> The channel key can be viewed as the access key of the Beacon,
+<p>Several Beacons may use the same channel; they will then
+show the same state, which is great if you have a large office,
+or work at an international company.</p>
+<p>The channel key may be viewed as the access key of the Beacon,
 as it is all that is needed to control a device. So make sure you
 only share the channel key with people and systems that should
 be able to control the device. Do not store it publicly (unless you
@@ -252,10 +258,11 @@ letters and numbers and use that as channel key.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>static</td>
-<td>BI-Beacon will show a constant color</td>
+<td>Connected Beacons will show a constant color</td>
 </tr>
 <tr class="row-odd"><td>pulsing</td>
-<td>BI-Beacons will pulse with a given speed and color</td>
+<td>Connected Beacons will pulse with
+given speed and color</td>
 </tr>
 </tbody>
 </table>
@@ -263,7 +270,7 @@ letters and numbers and use that as channel key.</p>
 e.g. on or off, ready or failed.</p>
 <p><em>Pulsing colors</em> give the impression of something happening, e.g.
 something is building or being processed.</p>
-<p>The significance of individual colors and pulses is up to your imagination.</p>
+<p>The meaning of individual colors and pulses is up to your imagination.</p>
 <div class="section" id="change-state">
 <h3>Change state<a class="headerlink" href="#change-state" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
@@ -287,6 +294,9 @@ something is building or being processed.</p>
 </tr>
 </tbody>
 </table>
+<p>Make sure the parameters are be transmitted as URL encoded Form Data,
+i.e. the request header Content-Type should be
+<code class="docutils literal notranslate"><span class="pre">application/x-www-form-urlencoded</span></code>.</p>
 <dl class="docutils">
 <dt>:beacon-server</dt>
 <dd>This is the hostname of the state server.</dd>
@@ -297,12 +307,11 @@ something is building or being processed.</p>
 <p class="first admonition-title">Note</p>
 <p>At the moment, there is only one official beacon state server.
 It is available at this URL:</p>
-<blockquote class="last">
+<blockquote>
 <div><code class="docutils literal notranslate"><span class="pre">https://api.cilamp.se/v1</span></code></div></blockquote>
+<p class="last">The state server will be available as open source software
+in June 2019, see <a class="reference external" href="https://bi-beacon.se/announcement-open-source-api-server-coming-in-june/">Announcement: Open source server in June</a>.</p>
 </div>
-<p><em>Note</em>: the parameters should be transmitted as URL encoded Form Data,
-i.e. the request header Content-Type should be
-<code class="docutils literal notranslate"><span class="pre">application/x-www-form-urlencoded</span></code>.</p>
 <div class="section" id="parameter-examples">
 <h4>Parameter examples<a class="headerlink" href="#parameter-examples" title="Permalink to this headline">¶</a></h4>
 <table class="docutils field-list" frame="void" rules="none">
@@ -575,7 +584,11 @@ curl -X POST -F <span class="s2">&quot;color=#4400FF&quot;</span> -F <span class
 </div>
 </div>
 </div>
-<span id="document-setup"></span><div class="section" id="how-to-setup-a-bi-beacon">
+<span id="document-setup"></span><style>
+  .blue {color:blue}
+  .purple {color:purple}
+  .green {color:green}
+</style><div class="section" id="how-to-setup-a-bi-beacon">
 <h2>How to setup a BI-Beacon<a class="headerlink" href="#how-to-setup-a-bi-beacon" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="setup-bi-beacon-via-wifi">
 <h3>Setup BI-Beacon via Wifi<a class="headerlink" href="#setup-bi-beacon-via-wifi" title="Permalink to this headline">¶</a></h3>
@@ -618,10 +631,8 @@ to (also known as SSID)</p>
 <p>b. WiFi password: password of WiFi to connect
 to (leave empty if no password)</p>
 <p>c. Channel key: the string identifier controlling
-the beacon state</p>
-<blockquote>
-<div><p>(read more in the  <a class="reference internal" href="index.html#ref-api"><span class="std std-ref">API</span></a> section)</p>
-</div></blockquote>
+the beacon state
+(read more in the  <a class="reference internal" href="index.html#ref-api"><span class="std std-ref">API</span></a> section)</p>
 <p><em>Optional settings available from firmware version
 0.84 and upwards:</em></p>
 <p>d. State server: The channel state server to connect
@@ -635,12 +646,13 @@ the channel state server. Default: 4040.</p>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="_images/wifisetup_4.png"><img alt="image4" src="_images/wifisetup_4.png" style="width: 100%;" /></a></td>
 <td><ol class="first last arabic simple" start="7">
-<li>Wait for green<ol class="loweralpha">
-<li>It will first turn blue which means it is
-connecting to router</li>
-<li>Then it will turn purple which means it is
+<li>This should then happen:<ol class="loweralpha">
+<li>The Beacon will turn <span class="blue">blue</span> meaning it
+is trying to connect to the router</li>
+<li>It will turn <span class="purple">purple</span> which means it is
 connecting to state server</li>
-<li>Then it will turn green when connected</li>
+<li>Then it will turn <span class="green">green</span>
+if all goes well!</li>
 </ol>
 </li>
 </ol>
@@ -648,7 +660,10 @@ connecting to state server</li>
 </tr>
 </tbody>
 </table>
-<p>If you have any issues, please refer to <a class="reference external" href="https://cilamp.se/setup-guide/#1498746921926-4127dd4e-44a5">troubleshooting</a>.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">If you have any issues, please refer to <a class="reference external" href="https://cilamp.se/setup-guide/#1498746921926-4127dd4e-44a5">troubleshooting</a>.</p>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>To reset or reconfigure a BI-Beacon, reboot it whilst it cannot
@@ -658,7 +673,7 @@ connect to the router. E.g by doing any of the following:</p>
 <li>Turn off the router temporarily</li>
 <li>Move the BI-Beacon far away from the router</li>
 </ol>
-<p class="last">When you plug it in again, BI-Beacon will try to connect and
+<p class="last">When you plug it in again, the Beacon will try to connect and
 fail. It will then go into setup mode again.</p>
 </div>
 </div>

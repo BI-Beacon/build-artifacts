@@ -1,4 +1,19 @@
-.. documents how to configura a beacon
+.. documents how to configure a beacon
+
+.. raw:: html
+
+    <style>
+      .blue {color:blue}
+      .purple {color:purple}
+      .green {color:green}
+    </style>
+
+.. role:: blue
+
+.. role:: purple
+
+.. role:: green
+
 
 How to setup a BI-Beacon
 ========================
@@ -50,7 +65,7 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 |            |                                                        |
 |            |    c. Channel key: the string identifier controlling   |
 |            |    the beacon state                                    |
-|            |     (read more in the  :ref:`ref_api` section)         |
+|            |    (read more in the  :ref:`ref_api` section)          |
 |            |                                                        |
 |            |    *Optional settings available from firmware version  |
 |            |    0.84 and upwards:*                                  |
@@ -64,19 +79,23 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 |            |                                                        |
 +------------+--------------------------------------------------------+
 |  |image4|  |                                                        |
-|            |  7. Wait for green                                     |
+|            |  7. This should then happen:                           |
 |            |                                                        |
-|            |     a. It will first turn blue which means it is       |
-|            |        connecting to router                            |
+|            |     a. The Beacon will turn :blue:`blue` meaning it    |
+|            |        is trying to connect to the router              |
 |            |                                                        |
-|            |     b. Then it will turn purple which means it is      |
+|            |     b. It will turn :purple:`purple` which means it is |
 |            |        connecting to state server                      |
 |            |                                                        |
-|            |     c. Then it will turn green when connected          |
+|            |     c. Then it will turn :green:`green`                |
+|            |        if all goes well!                               |
 |            |                                                        |
 +------------+--------------------------------------------------------+
 
-If you have any issues, please refer to troubleshooting_.
+
+.. hint::
+
+    If you have any issues, please refer to troubleshooting_.
 
 .. _troubleshooting: https://cilamp.se/setup-guide/#1498746921926-4127dd4e-44a5
 
@@ -89,7 +108,7 @@ If you have any issues, please refer to troubleshooting_.
           2. Turn off the router temporarily
           3. Move the BI-Beacon far away from the router
 
-          When you plug it in again, BI-Beacon will try to connect and
+          When you plug it in again, the Beacon will try to connect and
           fail. It will then go into setup mode again.
 
 
