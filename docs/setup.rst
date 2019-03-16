@@ -39,6 +39,7 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 |           Instructions                                              |
 +============+========================================================+
 |            |                                                        |
+|            | 0. Find your WiFi credentials (password and WiFi name) |
 |  |image1|  | 1. Plugin your BI-Beacon (it turns blue)               |
 |            | 2. Disable mobile network (if on mobile device)        |
 |            | 3. Wait up to 30 seconds until BI-Beacon starts        |
