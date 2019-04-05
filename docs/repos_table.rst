@@ -6,18 +6,17 @@
 | Docs                  | Yes            | The REST protocol to control Beacons  | `Documentation repository`_          |
 |                       |                | (and everything surrounding it)       |                                      |
 +-----------------------+----------------+---------------------------------------+--------------------------------------+
-| CLI                   | Yes            | Comman Line Utilities                 | `Command Line Utilities repository`_ |
+| CLI                   | Yes            | Command line utilities                | `Command Line Utilities repository`_ |
 +-----------------------+----------------+---------------------------------------+--------------------------------------+
 | Examples              | Yes            | Client code examples (many languages) | `Client examples repository`_        |
 +-----------------------+----------------+---------------------------------------+--------------------------------------+
-| Server                | Yes            | The state server                      | `Server repository`_                 |
+| Server                | Yes            | BI-Beacon state server                | `Server repository`_                 |
 +-----------------------+----------------+---------------------------------------+--------------------------------------+
 | Artifacts             | Yes            | Automatically generated content from  | `Build Artifacts repository`_        |
-|                       | (but read only)| the other repositories                |                                      |
+|                       | (read only)    | the other repositories                |                                      |
 +-----------------------+----------------+---------------------------------------+--------------------------------------+
 | Firmware              | No             | The software running on physical      |                                      |
 |                       |                | BI-Beacons                            |                                      |
-|                       |                |                                       |                                      |
 +-----------------------+----------------+---------------------------------------+--------------------------------------+
 
 .. _`Documentation repository`: https://github.com/BI-Beacon/docs

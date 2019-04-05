@@ -4,8 +4,8 @@
 How to contribute
 =================
 
-BI-Beacon is partially open source; see the repositories table on what is
-and what is not open.
+The majority of the BI-Beacon solution is supplied as open source; see
+the repositories table on what is and what is not open.
 
 
 Code quality

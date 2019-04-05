@@ -41,15 +41,15 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 |            |                                                        |
 |            | 0. Find your WiFi credentials (password and WiFi name) |
 |  |image1|  | 1. Plugin your BI-Beacon (it turns blue)               |
-|            | 2. Disable mobile network (if on mobile device)        |
+|            | 2. Disable cellular network (if on mobile device)      |
 |            | 3. Wait up to 30 seconds until BI-Beacon starts        |
 |            |    shifting slowly between blue and green              |
 |            |    (this means setup mode is active)                   |
 |            |                                                        |
 +------------+--------------------------------------------------------+
 |  |image2|  |                                                        |
-|            | 4. Connect to WiFi “BI-Beacon-A1B2C3” (A1B2C3          |
-|            |    is unique for your Beacon)                          |
+|            | 4. Connect to WiFi “``BI-Beacon-A1B2C3``”              |
+|            |    (where ``A1B2C3`` is unique for your Beacon)        |
 |            |                                                        |
 +------------+--------------------------------------------------------+
 |  |image3|  |                                                        |
@@ -116,8 +116,9 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 Setup BI-Beacon via USB
 -----------------------
 
-You can also setup a BI-Beacon using a USB data cable, however this requires
-that you are on a Linux machine with a user in the `dialout` usergroup.
+You can also setup a BI-Beacon using a USB data cable. (This, however, requires
+that your user is on a Linux machine and has the proper permissions (often this
+means being part of the ``dialout`` user group.)
 
 Clone the cli repo (see :ref:`ref_repositories`).
 

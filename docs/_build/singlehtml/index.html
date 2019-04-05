@@ -606,7 +606,7 @@ curl -X POST -F <span class="s2">&quot;color=#4400FF&quot;</span> -F <span class
 <td><ol class="first last arabic simple" start="0">
 <li>Find your WiFi credentials (password and WiFi name)</li>
 <li>Plugin your BI-Beacon (it turns blue)</li>
-<li>Disable mobile network (if on mobile device)</li>
+<li>Disable cellular network (if on mobile device)</li>
 <li>Wait up to 30 seconds until BI-Beacon starts
 shifting slowly between blue and green
 (this means setup mode is active)</li>
@@ -615,8 +615,8 @@ shifting slowly between blue and green
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="_images/wifisetup_2.png"><img alt="image2" src="_images/wifisetup_2.png" style="width: 100%;" /></a></td>
 <td><ol class="first last arabic simple" start="4">
-<li>Connect to WiFi “BI-Beacon-A1B2C3” (A1B2C3
-is unique for your Beacon)</li>
+<li>Connect to WiFi “<code class="docutils literal notranslate"><span class="pre">BI-Beacon-A1B2C3</span></code>”
+(where <code class="docutils literal notranslate"><span class="pre">A1B2C3</span></code> is unique for your Beacon)</li>
 </ol>
 </td>
 </tr>
@@ -679,8 +679,9 @@ fail. It will then go into setup mode again.</p>
 </div>
 <div class="section" id="setup-bi-beacon-via-usb">
 <h3>Setup BI-Beacon via USB<a class="headerlink" href="#setup-bi-beacon-via-usb" title="Permalink to this headline">¶</a></h3>
-<p>You can also setup a BI-Beacon using a USB data cable, however this requires
-that you are on a Linux machine with a user in the <cite>dialout</cite> usergroup.</p>
+<p>You can also setup a BI-Beacon using a USB data cable. (This, however, requires
+that your user is on a Linux machine and has the proper permissions (often this
+means being part of the <code class="docutils literal notranslate"><span class="pre">dialout</span></code> user group.)</p>
 <p>Clone the cli repo (see <a class="reference internal" href="index.html#ref-repositories"><span class="std std-ref">Repositories</span></a>).</p>
 <p>Then, in a terminal of your choice,</p>
 <blockquote>
@@ -689,8 +690,8 @@ that you are on a Linux machine with a user in the <cite>dialout</cite> usergrou
 </div>
 <span id="document-devguide"></span><div class="section" id="how-to-contribute">
 <h2>How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h2>
-<p>BI-Beacon is partially open source; see the repositories table on what is
-and what is not open.</p>
+<p>The majority of the BI-Beacon solution is supplied as open source; see
+the repositories table on what is and what is not open.</p>
 <div class="section" id="code-quality">
 <h3>Code quality<a class="headerlink" href="#code-quality" title="Permalink to this headline">¶</a></h3>
 <p>We use Sonar Cloud to analyse the source code for code smells, bugs, security
@@ -738,7 +739,7 @@ and a good easy way to start contributing to the repositories.</p>
 </tr>
 <tr class="row-odd"><td>CLI</td>
 <td>Yes</td>
-<td>Comman Line Utilities</td>
+<td>Command line utilities</td>
 <td><a class="reference external" href="https://github.com/BI-Beacon/cli">Command Line Utilities repository</a></td>
 </tr>
 <tr class="row-even"><td>Examples</td>
@@ -748,12 +749,12 @@ and a good easy way to start contributing to the repositories.</p>
 </tr>
 <tr class="row-odd"><td>Server</td>
 <td>Yes</td>
-<td>The state server</td>
+<td>BI-Beacon state server</td>
 <td><a class="reference external" href="https://github.com/BI-Beacon/server">Server repository</a></td>
 </tr>
 <tr class="row-even"><td>Artifacts</td>
 <td>Yes
-(but read only)</td>
+(read only)</td>
 <td>Automatically generated content from
 the other repositories</td>
 <td><a class="reference external" href="https://github.com/BI-Beacon/build-artifacts">Build Artifacts repository</a></td>
