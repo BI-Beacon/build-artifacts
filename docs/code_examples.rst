@@ -6,8 +6,6 @@ Java
 
 .. code-block:: java
 
-   all:
-   	javac se/bibeacon/examples/java/SetBeacon.java
    package se.bibeacon.examples.java;
    
    import java.io.InputStream;
@@ -132,8 +130,6 @@ JavaScript
    
    module.exports = Beacon;
    
-   all:
-   
    {
      "name": "bi-beacon",
      "version": "1.0.0",
@@ -149,8 +145,6 @@ PHP
 
 .. code-block:: php
 
-   all:
-   
    <?php
    
    function bibeacon_set($channelid, $color, $period, $server="https://api.cilamp.se/v1/") {
@@ -191,10 +185,6 @@ shell
 
 .. code-block:: shell
 
-   all:	tests
-   
-   tests:
-   	shellcheck *.sh
    #!/bin/sh
    
    # Set a BI-Beacon to blue
