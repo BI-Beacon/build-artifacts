@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>BI-Beacon v0.57 documentation</title>
+    <title>BI-Beacon v0.58 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -27,7 +27,7 @@
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
-        <li class="nav-item nav-item-0"><a href="index.html#document-index">BI-Beacon v0.57 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html#document-index">BI-Beacon v0.58 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -36,8 +36,9 @@
   <ul>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-overview">BI-Beacon Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-setup">First time setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="index.html#configuring-via-wifi">Configuring via WiFi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#configuring-via-usb-cable">Configuring via USB cable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#configure-via-wifi">Configure via WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#configure-via-usb-cable">Configure via USB cable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#reset-configuration">Reset configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-code_examples">Code examples</a><ul>
@@ -128,8 +129,8 @@ the coffee machine.</p>
   .green {color:green}
 </style><div class="section" id="first-time-setup">
 <h2>First time setup<a class="headerlink" href="#first-time-setup" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="configuring-via-wifi">
-<h3>Configuring via WiFi<a class="headerlink" href="#configuring-via-wifi" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="configure-via-wifi">
+<h3>Configure via WiFi<a class="headerlink" href="#configure-via-wifi" title="Permalink to this headline">¶</a></h3>
 <p>You can setup a BI-Beacon using a mobile or desktop device that connects to the Beacons own setup web page.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -203,21 +204,9 @@ if all goes well!</li>
 <p class="first admonition-title">Hint</p>
 <p class="last">If you have any issues, please refer to <a class="reference external" href="https://cilamp.se/setup-guide/#1498746921926-4127dd4e-44a5">troubleshooting</a>.</p>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>To reset or reconfigure a BI-Beacon, reboot it whilst it cannot
-connect to the router. E.g by doing any of the following:</p>
-<ol class="arabic simple">
-<li>Change SSID or password on the router</li>
-<li>Turn off the router temporarily</li>
-<li>Move the BI-Beacon far away from the router</li>
-</ol>
-<p class="last">When you plug it in again, the Beacon will try to connect and
-fail. It will then go into setup mode again.</p>
 </div>
-</div>
-<div class="section" id="configuring-via-usb-cable">
-<h3>Configuring via USB cable<a class="headerlink" href="#configuring-via-usb-cable" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="configure-via-usb-cable">
+<h3>Configure via USB cable<a class="headerlink" href="#configure-via-usb-cable" title="Permalink to this headline">¶</a></h3>
 <p>You can also setup a BI-Beacon using a USB data cable.
 (This, however, requires that your user is on a Linux
 machine and has the proper permissions (often this
@@ -226,6 +215,28 @@ means being part of the <code class="docutils literal notranslate"><span class="
 <p>Then, in a terminal of your choice,</p>
 <blockquote>
 <div>$ python config_via_usb.py &lt;ssid&gt; &lt;password&gt; &lt;channelkey&gt; [stateserver] [port]</div></blockquote>
+</div>
+<div class="section" id="reset-configuration">
+<h3>Reset configuration<a class="headerlink" href="#reset-configuration" title="Permalink to this headline">¶</a></h3>
+<p>If you want to go back to default settings, for example if
+you forgot the channel key you specified previously, hold
+down the FLASH button at least seven seconds. The Beacon
+will show a yellow light during this process, and green
+when the settings have been reset.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The reset via FLASH is only available in firmware 0.87 and higher.</p>
+<p>To reconfigure a Beacon with firmware 0.86 or lower,
+reboot it whilst it cannot connect to the router.</p>
+<p>E.g by doing any of the following:</p>
+<ol class="arabic simple">
+<li>Change SSID or password on the router</li>
+<li>Turn off the router temporarily</li>
+<li>Move the BI-Beacon far away from the router</li>
+</ol>
+<p class="last">When you plug it in again, the Beacon will try to connect and
+fail. It will then go into setup mode again.</p>
+</div>
 </div>
 </div>
 <span id="document-code_examples"></span><div class="section" id="code-examples">
@@ -779,7 +790,7 @@ to switch to.</p>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
-        <li class="nav-item nav-item-0"><a href="index.html#document-index">BI-Beacon v0.57 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html#document-index">BI-Beacon v0.58 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

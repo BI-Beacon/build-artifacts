@@ -36,6 +36,6 @@ $(window).resize(function(){
         $("li.nav-item-0 a").text("Top");
     }
     else {
-        $("li.nav-item-0 a").text("BI-Beacon v0.57 documentation");
+        $("li.nav-item-0 a").text("BI-Beacon v0.58 documentation");
     }
 });

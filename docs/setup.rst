@@ -18,8 +18,8 @@
 First time setup
 ================
 
-Configuring via WiFi
---------------------
+Configure via WiFi
+------------------
 
 .. |image1| image:: _static/wifisetup_1.png
    :width: 100%
@@ -101,20 +101,8 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 .. _troubleshooting: https://cilamp.se/setup-guide/#1498746921926-4127dd4e-44a5
 
 
-
-.. note:: To reset or reconfigure a BI-Beacon, reboot it whilst it cannot
-          connect to the router. E.g by doing any of the following:
-
-          1. Change SSID or password on the router
-          2. Turn off the router temporarily
-          3. Move the BI-Beacon far away from the router
-
-          When you plug it in again, the Beacon will try to connect and
-          fail. It will then go into setup mode again.
-
-
-Configuring via USB cable
--------------------------
+Configure via USB cable
+-----------------------
 
 You can also setup a BI-Beacon using a USB data cable.
 (This, however, requires that your user is on a Linux
@@ -127,3 +115,26 @@ Then, in a terminal of your choice,
 
    $ python config_via_usb.py <ssid> <password> <channelkey> [stateserver] [port]
 
+
+Reset configuration
+-------------------
+
+If you want to go back to default settings, for example if
+you forgot the channel key you specified previously, hold
+down the FLASH button at least seven seconds. The Beacon
+will show a yellow light during this process, and green
+when the settings have been reset.
+
+.. note:: The reset via FLASH is only available in firmware 0.87 and higher.
+
+          To reconfigure a Beacon with firmware 0.86 or lower,
+          reboot it whilst it cannot connect to the router.
+
+          E.g by doing any of the following:
+
+          1. Change SSID or password on the router
+          2. Turn off the router temporarily
+          3. Move the BI-Beacon far away from the router
+
+          When you plug it in again, the Beacon will try to connect and
+          fail. It will then go into setup mode again.
