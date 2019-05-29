@@ -15,11 +15,11 @@
 .. role:: green
 
 
-How to setup a BI-Beacon
-========================
+First time setup
+================
 
-Setup BI-Beacon via Wifi
-------------------------
+Configuring via WiFi
+--------------------
 
 .. |image1| image:: _static/wifisetup_1.png
    :width: 100%
@@ -113,11 +113,12 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
           fail. It will then go into setup mode again.
 
 
-Setup BI-Beacon via USB
------------------------
+Configuring via USB cable
+-------------------------
 
-You can also setup a BI-Beacon using a USB data cable. (This, however, requires
-that your user is on a Linux machine and has the proper permissions (often this
+You can also setup a BI-Beacon using a USB data cable.
+(This, however, requires that your user is on a Linux
+machine and has the proper permissions (often this
 means being part of the ``dialout`` user group.)
 
 Clone the cli repo (see :ref:`ref_repositories`).

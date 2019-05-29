@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>BI-Beacon v0.56 documentation</title>
+    <title>BI-Beacon v0.57 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -27,30 +27,17 @@
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
-        <li class="nav-item nav-item-0"><a href="index.html#document-index">BI-Beacon v0.56 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html#document-index">BI-Beacon v0.57 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html#document-index">Table of Contents</a></h3>
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html#document-api">BI-Beacon Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#architecture">Architecture</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="index.html#background">Background</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="index.html#idea-1-direct-cable-connections">Idea 1: direct cable connections</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#idea-2-dynamic-ip-addresses">Idea 2: dynamic IP addresses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#idea-3-iot-to-the-rescue">Idea 3: IoT to the rescue!</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#api">API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="index.html#change-state">Change state</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="index.html#parameter-examples">Parameter examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#expected-response">Expected response</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#sample-curl-call">Sample Curl Call</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-overview">BI-Beacon Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-setup">First time setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#configuring-via-wifi">Configuring via WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#configuring-via-usb-cable">Configuring via USB cable</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-code_examples">Code examples</a><ul>
@@ -60,15 +47,28 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#shell">shell</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#document-setup">How to setup a BI-Beacon</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="index.html#setup-bi-beacon-via-wifi">Setup BI-Beacon via Wifi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#setup-bi-beacon-via-usb">Setup BI-Beacon via USB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-api">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#change-state">Change state</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#parameter-examples">Parameter examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#expected-response">Expected response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#sample-curl-call">Sample Curl Call</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-devguide">How to contribute</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="index.html#code-quality">Code quality</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#documentation-build-pipeline">Documentation build pipeline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#repositories">Repositories</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-architecture">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#background">Background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#idea-1-direct-cable-connections">Idea 1: direct cable connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#idea-2-dynamic-ip-addresses">Idea 2: dynamic IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#idea-3-iot-to-the-rescue">Idea 3: IoT to the rescue!</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -85,7 +85,7 @@
 <div class="section" id="bi-beacon-documentation">
 <h1>BI-Beacon documentation<a class="headerlink" href="#bi-beacon-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<span id="document-api"></span><div class="section" id="bi-beacon-overview">
+<span id="document-overview"></span><div class="section" id="bi-beacon-overview">
 <h2>BI-Beacon Overview<a class="headerlink" href="#bi-beacon-overview" title="Permalink to this headline">¶</a></h2>
 <img alt="https://api.travis-ci.org/objarni/leanmodel.svg?branch=master" src="https://api.travis-ci.org/objarni/leanmodel.svg?branch=master" />
 <img alt="https://sonarcloud.io/api/project_badges/measure?project=bibeacon-code-examples&amp;metric=alert_status" src="https://sonarcloud.io/api/project_badges/measure?project=bibeacon-code-examples&amp;metric=alert_status" />
@@ -122,269 +122,110 @@ the same thing.</p>
 offices, or if you want a Beacon both in the conference room and at
 the coffee machine.</p>
 </div>
-<div class="section" id="architecture">
-<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
-<div class="graphviz"><img src="_images/graphviz-1b7baa19b42d4b3eb52fafa58f1b8522ef256d54.png" alt="digraph bibeacon_architecture {
-
-    bibeacon_1 [ label=&quot;BI-Beacon\n1&quot; ]
-    bibeacon_2 [ label=&quot;BI-Beacon\n2&quot; ]
-    LAN_caller [ label=&quot;LAN\ncaller&quot; ]
-    Cloud_caller [ label=&quot;Cloud\ncaller&quot; ]
-    state_server [ label=&quot;State server&quot; ]
-
-    bibeacon_1 -&gt; state_server
-    bibeacon_2 -&gt; state_server
-    LAN_caller -&gt; state_server
-    Cloud_caller -&gt; state_server
-}" class="graphviz" /></div>
-<dl class="docutils">
-<dt>BI-Beacon 1 and 2</dt>
-<dd>This is either physical or virtual BI-Beacon devices, showing some state
-of something interesting to your business.</dd>
-<dt>State Server</dt>
-<dd>This is the source of state for BI-Beacons.</dd>
-<dt>Caller systems</dt>
-<dd>This is the user of the Beacons - where API calls originate.</dd>
-</dl>
-<div class="section" id="background">
-<h3>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h3>
-<p>The BI-Beacon architecture is fairly straightforward, however, might need
-some explanation anyway since it is not the simplest of possible
-designs and this is intentional.</p>
-<p>So let’s begin with the simplest possible design and work our
-way from there.</p>
-<div class="section" id="idea-1-direct-cable-connections">
-<h4>Idea 1: direct cable connections<a class="headerlink" href="#idea-1-direct-cable-connections" title="Permalink to this headline">¶</a></h4>
-<p>If we want to control devices in our offices, the simplest possible
-idea would be to connect them directly to our computers.</p>
-<p>Indeed, this  is possible  with a  BI-Beacon, using  a USB  data cable
-connected  to a  wall-powered  PC, but  since  it requires  USB-serial
-device drivers, as well as the right user/device permissions on the PC
-in question, this  would actually be harder to do  than using the REST
-API over WiFi!</p>
-<p>This method also has the drawback of limiting the location of a Beacon
-to the  vicinity of a  PC. Also,  the software controlling  the Beacon
-would need to be on that PC.</p>
-</div>
-<div class="section" id="idea-2-dynamic-ip-addresses">
-<h4>Idea 2: dynamic IP addresses<a class="headerlink" href="#idea-2-dynamic-ip-addresses" title="Permalink to this headline">¶</a></h4>
-<p>The next natural step after direct connection to a PC would be
-to connect over the local network - be it over WiFi or an ethernet cable,
-giving the device a local IP.</p>
-<p>So why not use this method?</p>
-<p>Well, the reason is corporate IT networks; they’re a mess in general!</p>
-<p>Getting a  dynamic IP  by connecting  a device to  the network  is one
-thing; DHCP  is common enough  today that  it can be  generally relied
-upon, however,  what then?  If you  want to  communicate to  a (local)
-device connected to  the (local) network, you would need  to know its’
-dynamic IP address.</p>
-<p>At home, you could just login to your router (at least if you are tech
-savvy enough!) and find the IP-address of the Beacon.</p>
-<p>But  at work,  unless you’re  working in  the IT  department, that  is
-typically out  of the question,  not only for “security  reasons”, but
-also due to that the IT  department most likely already have enough on
-their hands! And  getting them to configure a device  to have a static
-IP is just ..  many weeks of delivery time - time none  of us has, nor
-want to put into getting a BI-Beacon up and running.</p>
-<p>A drawback of this method is also the ‘local’ part - we cannot
-control a BI-Beacon unless we’re on the same network. Forget about
-controlling it from the cloud!</p>
-</div>
-<div class="section" id="idea-3-iot-to-the-rescue">
-<h4>Idea 3: IoT to the rescue!<a class="headerlink" href="#idea-3-iot-to-the-rescue" title="Permalink to this headline">¶</a></h4>
-<p>So, as odd as it sounds, it is actually easier to make the device
-an internet-global device instead of a local (direct cable, or
-local network) device!</p>
-<p>The trick is to have the  Beacons retrieve their respective state from
-a known  server (corporate  internal or  otherwise), via  secure HTTPs
-requests.</p>
-<p>This  means the  devices  can get  their  dynamic, local  IP-addresses
-inside of your  fine and dandy corporate network and  you address them
-indirectly  by  communicating with  the  state  server, which  resides
-either inside your corporate network  (at a well-known address) or via
-the public internet!</p>
-<p>As an integrator or user of Bi-Beacons, all you have to do is send off
-HTTPs requests  to the state  server (or  “API server” if  you prefer)
-which stores the  states and serves them to Beacons  asking what state
-to switch to.</p>
-<p>It Just Works™! :)</p>
-</div>
-</div>
-</div>
-<div class="section" id="api">
-<span id="ref-api"></span><h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
-<p>There is only one endpoint! Hurray!</p>
-<p>And it looks something like this:</p>
-<blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">https://api.cilamp.se/v1/our-beautiful-monitor</span></code></div></blockquote>
-<p>BI-Beacons are controlled  via a RESTful web API,  but only indirectly
-via a state  server (see <a class="reference internal" href="#architecture">Architecture</a>). This means it  is possible to
-control Beacons from any programming language that can make HTTPs POST
-requests.</p>
-<p>You configure a Beacon to continuously copy the state of a certain
-channel, identified by a string called <em>channel key</em>.
-A channel key is made up of at
-least eight characters. Allowed characters classes are small and big
-english letters, digits, underscore and dash, or put in regex form:</p>
-<blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">[a-zA-Z0-9_-]{8,255}</span></code></div></blockquote>
-<p>A channel key can be 8 to 255 characters long.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><cite>channel key</cite> used to be called <cite>systemid</cite>.</p>
-</div>
-<p>Several Beacons may use the same channel; they will then
-show the same state, which is great if you have a large office,
-or work at an international company.</p>
-<p>The channel key may be viewed as the access key of the Beacon,
-as it is all that is needed to control a device. So make sure you
-only share the channel key with people and systems that should
-be able to control the device. Do not store it publicly (unless you
-want anyone to be able to change the state of your Beacon, which
-could be fun but probably not your most common use case!)</p>
-<p>If you want to add some security, randomize a string of at least 20
-letters and numbers and use that as channel key.</p>
-<p>A channel can be in one of two states:</p>
+<span id="document-setup"></span><style>
+  .blue {color:blue}
+  .purple {color:purple}
+  .green {color:green}
+</style><div class="section" id="first-time-setup">
+<h2>First time setup<a class="headerlink" href="#first-time-setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configuring-via-wifi">
+<h3>Configuring via WiFi<a class="headerlink" href="#configuring-via-wifi" title="Permalink to this headline">¶</a></h3>
+<p>You can setup a BI-Beacon using a mobile or desktop device that connects to the Beacons own setup web page.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="14%" />
-<col width="86%" />
+<col width="18%" />
+<col width="82%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">State</th>
-<th class="head">Meaning</th>
+<tr class="row-odd"><th class="head" colspan="2">Instructions</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>static</td>
-<td>Connected Beacons will show a constant color</td>
+<tr class="row-even"><td><a class="reference internal" href="_images/wifisetup_1.png"><img alt="image1" src="_images/wifisetup_1.png" style="width: 100%;" /></a></td>
+<td><ol class="first last arabic simple" start="0">
+<li>Find your WiFi credentials (password and WiFi name)</li>
+<li>Plugin your BI-Beacon (it turns blue)</li>
+<li>Disable cellular network (if on mobile device)</li>
+<li>Wait up to 30 seconds until BI-Beacon starts
+shifting slowly between blue and green
+(this means setup mode is active)</li>
+</ol>
+</td>
 </tr>
-<tr class="row-odd"><td>pulsing</td>
-<td>Connected Beacons will pulse with
-given speed and color</td>
+<tr class="row-odd"><td><a class="reference internal" href="_images/wifisetup_2.png"><img alt="image2" src="_images/wifisetup_2.png" style="width: 100%;" /></a></td>
+<td><ol class="first last arabic simple" start="4">
+<li>Connect to WiFi “<code class="docutils literal notranslate"><span class="pre">BI-Beacon-A1B2C3</span></code>”
+(where <code class="docutils literal notranslate"><span class="pre">A1B2C3</span></code> is unique for your Beacon)</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="_images/wifisetup_3.png"><img alt="image3" src="_images/wifisetup_3.png" style="width: 100%;" /></a></td>
+<td><ol class="first last arabic" start="5">
+<li><p class="first">Browse to BI-Beacon’s Setup Page:
+<a class="reference external" href="http://192.168.4.1">http://192.168.4.1</a></p>
+</li>
+<li><p class="first">Enter details</p>
+<p>a. WiFi name: the WiFi lamp should connect
+to (also known as SSID)</p>
+<p>b. WiFi password: password of WiFi to connect
+to (leave empty if no password)</p>
+<p>c. Channel key: the string identifier controlling
+the beacon state
+(read more in the  <a class="reference internal" href="index.html#ref-api"><span class="std std-ref">API</span></a> section)</p>
+<p><em>Optional settings available from firmware version
+0.84 and upwards:</em></p>
+<p>d. State server: The channel state server to connect
+to.
+Default: api.cilamp.se</p>
+<p>e. Port: The TCP port to connect to on
+the channel state server. Default: 4040.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="_images/wifisetup_4.png"><img alt="image4" src="_images/wifisetup_4.png" style="width: 100%;" /></a></td>
+<td><ol class="first last arabic simple" start="7">
+<li>This should then happen:<ol class="loweralpha">
+<li>The Beacon will turn <span class="blue">blue</span> meaning it
+is trying to connect to the router</li>
+<li>It will turn <span class="purple">purple</span> which means it is
+connecting to state server</li>
+<li>Then it will turn <span class="green">green</span>
+if all goes well!</li>
+</ol>
+</li>
+</ol>
+</td>
 </tr>
 </tbody>
 </table>
-<p><em>Static colors</em> give the impression of the state of a system or process,
-e.g. on or off, ready or failed.</p>
-<p><em>Pulsing colors</em> give the impression of something happening, e.g.
-something is building or being processed.</p>
-<p>The meaning of individual colors and pulses is up to your imagination.</p>
-<div class="section" id="change-state">
-<h3>Change state<a class="headerlink" href="#change-state" title="Permalink to this headline">¶</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><p class="first"><code class="docutils literal notranslate"><span class="pre">https://:beacon-server/v1/:channelkey/</span></code></p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Method:</th><td class="field-body"><p class="first">POST</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt>{</dt>
-<dd><p class="first"><strong>color:</strong> color specification (format “#RRGGBB”)</p>
-<p class="last"><strong>period:</strong> length of the pulse in milliseconds (optional, format integer)</p>
-</dd>
-</dl>
-<p class="last">}</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Make sure the parameters are be transmitted as URL encoded Form Data,
-i.e. the request header Content-Type should be
-<code class="docutils literal notranslate"><span class="pre">application/x-www-form-urlencoded</span></code>.</p>
-<dl class="docutils">
-<dt>:beacon-server</dt>
-<dd>This is the hostname of the state server.</dd>
-<dt>:channelkey</dt>
-<dd>This string identifies the channel you want to change the state of.</dd>
-</dl>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">If you have any issues, please refer to <a class="reference external" href="https://cilamp.se/setup-guide/#1498746921926-4127dd4e-44a5">troubleshooting</a>.</p>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>At the moment, there is only one official beacon state server.
-It is available at this URL:</p>
+<p>To reset or reconfigure a BI-Beacon, reboot it whilst it cannot
+connect to the router. E.g by doing any of the following:</p>
+<ol class="arabic simple">
+<li>Change SSID or password on the router</li>
+<li>Turn off the router temporarily</li>
+<li>Move the BI-Beacon far away from the router</li>
+</ol>
+<p class="last">When you plug it in again, the Beacon will try to connect and
+fail. It will then go into setup mode again.</p>
+</div>
+</div>
+<div class="section" id="configuring-via-usb-cable">
+<h3>Configuring via USB cable<a class="headerlink" href="#configuring-via-usb-cable" title="Permalink to this headline">¶</a></h3>
+<p>You can also setup a BI-Beacon using a USB data cable.
+(This, however, requires that your user is on a Linux
+machine and has the proper permissions (often this
+means being part of the <code class="docutils literal notranslate"><span class="pre">dialout</span></code> user group.)</p>
+<p>Clone the cli repo (see <a class="reference internal" href="index.html#ref-repositories"><span class="std std-ref">Repositories</span></a>).</p>
+<p>Then, in a terminal of your choice,</p>
 <blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">https://api.cilamp.se/v1</span></code></div></blockquote>
-<p class="last">The state server will be available as open source software
-in June 2019, see <a class="reference external" href="https://bi-beacon.se/announcement-open-source-api-server-coming-in-june/">Announcement: Open source server in June</a>.</p>
-</div>
-<div class="section" id="parameter-examples">
-<h4>Parameter examples<a class="headerlink" href="#parameter-examples" title="Permalink to this headline">¶</a></h4>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Purpose:</th><td class="field-body">Set beacon to green</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="n">color</span><span class="p">:</span> <span class="s2">&quot;#00FF00&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Purpose:</th><td class="field-body">Set beacon to red and pulse once per second</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="n">color</span><span class="p">:</span> <span class="s2">&quot;#FF0000&quot;</span>
-    <span class="n">period</span><span class="p">:</span> <span class="mi">1000</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="expected-response">
-<h4>Expected response<a class="headerlink" href="#expected-response" title="Permalink to this headline">¶</a></h4>
-<p>On success</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Code:</th><td class="field-body">200</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Body:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&#39;:channelkey&#39; updated&quot;</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>On error</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Code:</th><td class="field-body">400</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Body:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;error message&gt;&quot;</span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="sample-curl-call">
-<h4>Sample Curl Call<a class="headerlink" href="#sample-curl-call" title="Permalink to this headline">¶</a></h4>
-<p>The following will make a POST request to the BI-Beacon state server
-<code class="docutils literal notranslate"><span class="pre">api.cilamp.se</span></code> to change the state of the channel named
-<cite>testchannel</cite> to green:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">F</span> <span class="s2">&quot;color=#00FF00&quot;</span> <span class="s2">&quot;https://api.cilamp.se/v1/testchannel&quot;</span>
-</pre></div>
-</div>
-</div>
+<div>$ python config_via_usb.py &lt;ssid&gt; &lt;password&gt; &lt;channelkey&gt; [stateserver] [port]</div></blockquote>
 </div>
 </div>
 <span id="document-code_examples"></span><div class="section" id="code-examples">
@@ -573,109 +414,180 @@ curl -X POST -F <span class="s2">&quot;color=#4400FF&quot;</span> -F <span class
 </div>
 </div>
 </div>
-<span id="document-setup"></span><style>
-  .blue {color:blue}
-  .purple {color:purple}
-  .green {color:green}
-</style><div class="section" id="how-to-setup-a-bi-beacon">
-<h2>How to setup a BI-Beacon<a class="headerlink" href="#how-to-setup-a-bi-beacon" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="setup-bi-beacon-via-wifi">
-<h3>Setup BI-Beacon via Wifi<a class="headerlink" href="#setup-bi-beacon-via-wifi" title="Permalink to this headline">¶</a></h3>
-<p>You can setup a BI-Beacon using a mobile or desktop device that connects to the Beacons own setup web page.</p>
+<span id="document-api"></span><div class="section" id="api">
+<span id="ref-api"></span><h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<p>There is only one endpoint! Hurray!</p>
+<p>And it looks something like this:</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">https://api.cilamp.se/v1/our-beautiful-monitor</span></code></div></blockquote>
+<p>BI-Beacons are controlled  via a RESTful web API,  but only indirectly
+via a state  server. This means it  is possible to
+control Beacons from any programming language that can make HTTPs POST
+requests.</p>
+<p>You configure a Beacon to continuously copy the state of a certain
+channel, identified by a string called <em>channel key</em>.
+A channel key is made up of at
+least eight characters. Allowed characters classes are small and big
+english letters, digits, underscore and dash, or put in regex form:</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">[a-zA-Z0-9_-]{8,255}</span></code></div></blockquote>
+<p>A channel key can be 8 to 255 characters long.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><cite>channel key</cite> used to be called <cite>systemid</cite>.</p>
+</div>
+<p>Several Beacons may use the same channel; they will then
+show the same state, which is great if you have a large office,
+or work at an international company.</p>
+<p>The channel key may be viewed as the access key of the Beacon,
+as it is all that is needed to control a device. So make sure you
+only share the channel key with people and systems that should
+be able to control the device. Do not store it publicly (unless you
+want anyone to be able to change the state of your Beacon, which
+could be fun but probably not your most common use case!)</p>
+<p>If you want to add some security, randomize a string of at least 20
+letters and numbers and use that as channel key.</p>
+<p>A channel can be in one of two states:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="18%" />
-<col width="82%" />
+<col width="14%" />
+<col width="86%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head" colspan="2">Instructions</th>
+<tr class="row-odd"><th class="head">State</th>
+<th class="head">Meaning</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="_images/wifisetup_1.png"><img alt="image1" src="_images/wifisetup_1.png" style="width: 100%;" /></a></td>
-<td><ol class="first last arabic simple" start="0">
-<li>Find your WiFi credentials (password and WiFi name)</li>
-<li>Plugin your BI-Beacon (it turns blue)</li>
-<li>Disable cellular network (if on mobile device)</li>
-<li>Wait up to 30 seconds until BI-Beacon starts
-shifting slowly between blue and green
-(this means setup mode is active)</li>
-</ol>
+<tr class="row-even"><td>static</td>
+<td>Connected Beacons will show a constant color</td>
+</tr>
+<tr class="row-odd"><td>pulsing</td>
+<td>Connected Beacons will pulse with
+given speed and color</td>
+</tr>
+</tbody>
+</table>
+<p><em>Static colors</em> give the impression of the state of a system or process,
+e.g. on or off, ready or failed.</p>
+<p><em>Pulsing colors</em> give the impression of something happening, e.g.
+something is building or being processed.</p>
+<p>The meaning of individual colors and pulses is up to your imagination.</p>
+<div class="section" id="change-state">
+<h3>Change state<a class="headerlink" href="#change-state" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><p class="first"><code class="docutils literal notranslate"><span class="pre">https://:beacon-server/v1/:channelkey/</span></code></p>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="_images/wifisetup_2.png"><img alt="image2" src="_images/wifisetup_2.png" style="width: 100%;" /></a></td>
-<td><ol class="first last arabic simple" start="4">
-<li>Connect to WiFi “<code class="docutils literal notranslate"><span class="pre">BI-Beacon-A1B2C3</span></code>”
-(where <code class="docutils literal notranslate"><span class="pre">A1B2C3</span></code> is unique for your Beacon)</li>
-</ol>
+<tr class="field-even field"><th class="field-name">Method:</th><td class="field-body"><p class="first">POST</p>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="_images/wifisetup_3.png"><img alt="image3" src="_images/wifisetup_3.png" style="width: 100%;" /></a></td>
-<td><ol class="first last arabic" start="5">
-<li><p class="first">Browse to BI-Beacon’s Setup Page:
-<a class="reference external" href="http://192.168.4.1">http://192.168.4.1</a></p>
-</li>
-<li><p class="first">Enter details</p>
-<p>a. WiFi name: the WiFi lamp should connect
-to (also known as SSID)</p>
-<p>b. WiFi password: password of WiFi to connect
-to (leave empty if no password)</p>
-<p>c. Channel key: the string identifier controlling
-the beacon state
-(read more in the  <a class="reference internal" href="index.html#ref-api"><span class="std std-ref">API</span></a> section)</p>
-<p><em>Optional settings available from firmware version
-0.84 and upwards:</em></p>
-<p>d. State server: The channel state server to connect
-to.
-Default: api.cilamp.se</p>
-<p>e. Port: The TCP port to connect to on
-the channel state server. Default: 4040.</p>
-</li>
-</ol>
-</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="_images/wifisetup_4.png"><img alt="image4" src="_images/wifisetup_4.png" style="width: 100%;" /></a></td>
-<td><ol class="first last arabic simple" start="7">
-<li>This should then happen:<ol class="loweralpha">
-<li>The Beacon will turn <span class="blue">blue</span> meaning it
-is trying to connect to the router</li>
-<li>It will turn <span class="purple">purple</span> which means it is
-connecting to state server</li>
-<li>Then it will turn <span class="green">green</span>
-if all goes well!</li>
-</ol>
-</li>
-</ol>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>{</dt>
+<dd><p class="first"><strong>color:</strong> color specification (format “#RRGGBB”)</p>
+<p class="last"><strong>period:</strong> length of the pulse in milliseconds (optional, format integer)</p>
+</dd>
+</dl>
+<p class="last">}</p>
 </td>
 </tr>
 </tbody>
 </table>
-<div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<p class="last">If you have any issues, please refer to <a class="reference external" href="https://cilamp.se/setup-guide/#1498746921926-4127dd4e-44a5">troubleshooting</a>.</p>
-</div>
+<p>Make sure the parameters are be transmitted as URL encoded Form Data,
+i.e. the request header Content-Type should be
+<code class="docutils literal notranslate"><span class="pre">application/x-www-form-urlencoded</span></code>.</p>
+<dl class="docutils">
+<dt>:beacon-server</dt>
+<dd>This is the hostname of the state server.</dd>
+<dt>:channelkey</dt>
+<dd>This string identifies the channel you want to change the state of.</dd>
+</dl>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>To reset or reconfigure a BI-Beacon, reboot it whilst it cannot
-connect to the router. E.g by doing any of the following:</p>
-<ol class="arabic simple">
-<li>Change SSID or password on the router</li>
-<li>Turn off the router temporarily</li>
-<li>Move the BI-Beacon far away from the router</li>
-</ol>
-<p class="last">When you plug it in again, the Beacon will try to connect and
-fail. It will then go into setup mode again.</p>
-</div>
-</div>
-<div class="section" id="setup-bi-beacon-via-usb">
-<h3>Setup BI-Beacon via USB<a class="headerlink" href="#setup-bi-beacon-via-usb" title="Permalink to this headline">¶</a></h3>
-<p>You can also setup a BI-Beacon using a USB data cable. (This, however, requires
-that your user is on a Linux machine and has the proper permissions (often this
-means being part of the <code class="docutils literal notranslate"><span class="pre">dialout</span></code> user group.)</p>
-<p>Clone the cli repo (see <a class="reference internal" href="index.html#ref-repositories"><span class="std std-ref">Repositories</span></a>).</p>
-<p>Then, in a terminal of your choice,</p>
+<p>At the moment, there is only one official beacon state server.
+It is available at this URL:</p>
 <blockquote>
-<div>$ python config_via_usb.py &lt;ssid&gt; &lt;password&gt; &lt;channelkey&gt; [stateserver] [port]</div></blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">https://api.cilamp.se/v1</span></code></div></blockquote>
+<p class="last">The state server will be available as open source software
+in June 2019, see <a class="reference external" href="https://bi-beacon.se/announcement-open-source-api-server-coming-in-june/">Announcement: Open source server in June</a>.</p>
+</div>
+<div class="section" id="parameter-examples">
+<h4>Parameter examples<a class="headerlink" href="#parameter-examples" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Purpose:</th><td class="field-body">Set beacon to green</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">color</span><span class="p">:</span> <span class="s2">&quot;#00FF00&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Purpose:</th><td class="field-body">Set beacon to red and pulse once per second</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">color</span><span class="p">:</span> <span class="s2">&quot;#FF0000&quot;</span>
+    <span class="n">period</span><span class="p">:</span> <span class="mi">1000</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="expected-response">
+<h4>Expected response<a class="headerlink" href="#expected-response" title="Permalink to this headline">¶</a></h4>
+<p>On success</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Code:</th><td class="field-body">200</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Body:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&#39;:channelkey&#39; updated&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>On error</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Code:</th><td class="field-body">400</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Body:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;error message&gt;&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-curl-call">
+<h4>Sample Curl Call<a class="headerlink" href="#sample-curl-call" title="Permalink to this headline">¶</a></h4>
+<p>The following will make a POST request to the BI-Beacon state server
+<code class="docutils literal notranslate"><span class="pre">api.cilamp.se</span></code> to change the state of the channel named
+<cite>testchannel</cite> to green:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">F</span> <span class="s2">&quot;color=#00FF00&quot;</span> <span class="s2">&quot;https://api.cilamp.se/v1/testchannel&quot;</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <span id="document-devguide"></span><div class="section" id="how-to-contribute">
@@ -759,6 +671,95 @@ BI-Beacons</td>
 </table>
 </div>
 </div>
+<span id="document-architecture"></span><div class="section" id="architecture">
+<span id="ref-architecture"></span><h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<div class="graphviz"><img src="_images/graphviz-16e611ac1eec595144b654e5be67e24965fbd048.png" alt="digraph bibeacon_architecture {
+
+    bibeacon_1 [ label=&quot;BI-Beacon\n1&quot; ]
+    bibeacon_2 [ label=&quot;BI-Beacon\n2&quot; ]
+    LAN_caller [ label=&quot;LAN\ncaller&quot; ]
+    Cloud_caller [ label=&quot;Cloud\ncaller&quot; ]
+    state_server [ label=&quot;State server&quot; ]
+
+    bibeacon_1 -&gt; state_server
+    bibeacon_2 -&gt; state_server
+    LAN_caller -&gt; state_server
+    Cloud_caller -&gt; state_server
+}" class="graphviz" /></div>
+<dl class="docutils">
+<dt>BI-Beacon 1 and 2</dt>
+<dd>This is either physical or virtual BI-Beacon devices, showing some state
+of something interesting to your business.</dd>
+<dt>State Server</dt>
+<dd>This is the source of state for BI-Beacons.</dd>
+<dt>Caller systems</dt>
+<dd>This is the user of the Beacons - where API calls originate.</dd>
+</dl>
+<div class="section" id="background">
+<h3>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h3>
+<p>The BI-Beacon architecture is fairly straightforward, however, might need
+some explanation anyway since it is not the simplest of possible
+designs and this is intentional.</p>
+<p>So let’s begin with the simplest possible design and work our
+way from there.</p>
+<div class="section" id="idea-1-direct-cable-connections">
+<h4>Idea 1: direct cable connections<a class="headerlink" href="#idea-1-direct-cable-connections" title="Permalink to this headline">¶</a></h4>
+<p>If we want to control devices in our offices, the simplest possible
+idea would be to connect them directly to our computers.</p>
+<p>Indeed, this  is possible  with a  BI-Beacon, using  a USB  data cable
+connected  to a  wall-powered  PC, but  since  it requires  USB-serial
+device drivers, as well as the right user/device permissions on the PC
+in question, this  would actually be harder to do  than using the REST
+API over WiFi!</p>
+<p>This method also has the drawback of limiting the location of a Beacon
+to the  vicinity of a  PC. Also,  the software controlling  the Beacon
+would need to be on that PC.</p>
+</div>
+<div class="section" id="idea-2-dynamic-ip-addresses">
+<h4>Idea 2: dynamic IP addresses<a class="headerlink" href="#idea-2-dynamic-ip-addresses" title="Permalink to this headline">¶</a></h4>
+<p>The next natural step after direct connection to a PC would be
+to connect over the local network - be it over WiFi or an ethernet cable,
+giving the device a local IP.</p>
+<p>So why not use this method?</p>
+<p>Well, the reason is corporate IT networks; they’re a mess in general!</p>
+<p>Getting a  dynamic IP  by connecting  a device to  the network  is one
+thing; DHCP  is common enough  today that  it can be  generally relied
+upon, however,  what then?  If you  want to  communicate to  a (local)
+device connected to  the (local) network, you would need  to know its’
+dynamic IP address.</p>
+<p>At home, you could just login to your router (at least if you are tech
+savvy enough!) and find the IP-address of the Beacon.</p>
+<p>But  at work,  unless you’re  working in  the IT  department, that  is
+typically out  of the question,  not only for “security  reasons”, but
+also due to that the IT  department most likely already have enough on
+their hands! And  getting them to configure a device  to have a static
+IP is just ..  many weeks of delivery time - time none  of us has, nor
+want to put into getting a BI-Beacon up and running.</p>
+<p>A drawback of this method is also the ‘local’ part - we cannot
+control a BI-Beacon unless we’re on the same network. Forget about
+controlling it from the cloud!</p>
+</div>
+<div class="section" id="idea-3-iot-to-the-rescue">
+<h4>Idea 3: IoT to the rescue!<a class="headerlink" href="#idea-3-iot-to-the-rescue" title="Permalink to this headline">¶</a></h4>
+<p>So, as odd as it sounds, it is actually easier to make the device
+an internet-global device instead of a local (direct cable, or
+local network) device!</p>
+<p>The trick is to have the  Beacons retrieve their respective state from
+a known  server (corporate  internal or  otherwise), via  secure HTTPs
+requests.</p>
+<p>This  means the  devices  can get  their  dynamic, local  IP-addresses
+inside of your  fine and dandy corporate network and  you address them
+indirectly  by  communicating with  the  state  server, which  resides
+either inside your corporate network  (at a well-known address) or via
+the public internet!</p>
+<p>As an integrator or user of Bi-Beacons, all you have to do is send off
+HTTPs requests  to the state  server (or  “API server” if  you prefer)
+which stores the  states and serves them to Beacons  asking what state
+to switch to.</p>
+<p>It Just Works™! :)</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
@@ -778,7 +779,7 @@ BI-Beacons</td>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
-        <li class="nav-item nav-item-0"><a href="index.html#document-index">BI-Beacon v0.56 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html#document-index">BI-Beacon v0.57 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

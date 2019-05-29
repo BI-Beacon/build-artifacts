@@ -14,10 +14,12 @@ BI-Beacon documentation
 
 .. toctree::
 
-  api
-  code_examples
+  overview
   setup
+  code_examples
+  api
   devguide
+  architecture
 
 
 Indices and tables
