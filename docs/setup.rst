@@ -43,7 +43,7 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 |  |image1|  | 1. Plugin your BI-Beacon (it turns blue)               |
 |            | 2. Disable cellular network (if on mobile device)      |
 |            | 3. Wait up to 30 seconds until BI-Beacon starts        |
-|            |    shifting slowly between blue and green              |
+|            |    shifting between blue and green                     |
 |            |    (this means setup mode is active)                   |
 |            |                                                        |
 +------------+--------------------------------------------------------+
@@ -55,6 +55,9 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 |  |image3|  |                                                        |
 |            | 5. Browse to BI-Beacon’s Setup Page:                   |
 |            |    http://192.168.4.1                                  |
+|            |                                                        |
+|            |    **Note:** *You may need to reload the page a        |
+|            |    couple of times to 'wake up' the web server*        |
 |            |                                                        |
 |            | 6. Enter details                                       |
 |            |                                                        |
