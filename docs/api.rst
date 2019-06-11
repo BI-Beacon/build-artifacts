@@ -96,7 +96,6 @@ i.e. the request header Content-Type should be
           in June 2019, see `Announcement: Open source server in June`_.
 
 
-
 .. _`Announcement: Open source server in June`: https://bi-beacon.se/announcement-open-source-api-server-coming-in-june/
 
 Parameter examples
@@ -154,4 +153,11 @@ The following will make a POST request to the BI-Beacon state server
 ::
 
     curl -X POST -F "color=#00FF00" "https://api.cilamp.se/v1/testchannel"
+
+
+Turn off Beacon
+---------------
+
+Simply send a POST request with color equal to black - "#000000" - to turn off
+a BI-Beacon.
 
