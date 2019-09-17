@@ -67,6 +67,11 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 |            |    b. WiFi password: password of WiFi to connect       |
 |            |    to (leave empty if no password)                     |
 |            |                                                        |
+|            |    **Note:** *If you bought your Beacon before         |
+|            |    September 2019, or have firmware version 0.89 or    |
+|            |    older, the Beacon will not handle % (per cent)      |
+|            |    in the WiFi password field due to a bug.*           |
+|            |                                                        |
 |            |    c. Channel key: the string identifier controlling   |
 |            |    the beacon state                                    |
 |            |    (read more in the  :ref:`ref_api` section)          |
