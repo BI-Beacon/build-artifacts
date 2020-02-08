@@ -17,7 +17,7 @@ Java
    
       public static boolean setColor( String systemid, String color ) {
          try {
-            URLConnection connection = new URL("https://api.cilamp.se/v1/" + systemid).openConnection();
+            URLConnection connection = new URL("https://api.bi-beacon.com/v1/" + systemid).openConnection();
             connection.setDoOutput(true);
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             OutputStream output = connection.getOutputStream();
@@ -63,7 +63,7 @@ JavaScript
    class Beacon {
    
      constructor(systemid, {
-       beaconHost = 'api.cilamp.se',
+       beaconHost = 'api.bi-beacon.com',
        apiVersion = 1,
      } = {}) {
        this._systemid = systemid;
@@ -147,7 +147,7 @@ PHP
 
    <?php
    
-   function bibeacon_set($channelid, $color, $period, $server="https://api.cilamp.se/v1/") {
+   function bibeacon_set($channelid, $color, $period, $server="https://api.bi-beacon.com/v1/") {
       $options = array(
          'http' => array(
             'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -180,6 +180,7 @@ PHP
    ?>
 
 
+
 Python
 ------
 
@@ -188,6 +189,8 @@ Python
    #! /usr/bin/env python
    import sys
    
+   API_SERVER = "api.bi-beacon.com"
+   
    
    def set_beacon(channelkey, rrggbb, period_ms=0):
        """Python 2/3 compatible hacky code below!"""
@@ -195,21 +198,16 @@ Python
        try:
            from urllib.request import urlopen
            from urllib.parse import urlencode, quote_plus
+   
            PYTHON3 = True
        except ImportError:
            from urllib2 import urlopen
            from urllib import urlencode
    
-       url = 'https://api.cilamp.se/v1/' + channelkey
-       params = {
-           'color': rrggbb,
-           'period': period_ms
-       }
+       url = "https://{}/v1/{}".format(API_SERVER, channelkey)
+       params = {"color": rrggbb, "period": period_ms}
        if PYTHON3:
-           data = urlencode(
-               params,
-               quote_via=quote_plus
-           ).encode('utf-8')
+           data = urlencode(params, quote_via=quote_plus).encode("utf-8")
        else:
            data = urlencode(params)
        print("     url:\t{url}".format(url=url))
@@ -218,7 +216,7 @@ Python
        print("response:\t{response}".format(response=req.read()))
    
    
-   if __name__ == '__main__':
+   if __name__ == "__main__":
        if len(sys.argv) in [3, 4]:
            channelkey = sys.argv[1]
            color = sys.argv[2]
@@ -237,10 +235,10 @@ shell
    #!/bin/sh
    
    # Set a BI-Beacon to blue
-   curl -X POST -F "color=#0000FF" "https://api.cilamp.se/v1/simple-awesome-monitor"
+   curl -X POST -F "color=#0000FF" "https://api.bi-beacon.com/v1/simple-awesome-monitor"
    
    # Pulse purple slowly
-   curl -X POST -F "color=#4400FF" -F "period=3000" "https://api.cilamp.se/v1/simple-awesome-monitor"
+   curl -X POST -F "color=#4400FF" -F "period=3000" "https://api.bi-beacon.com/v1/simple-awesome-monitor"
    
 
 
