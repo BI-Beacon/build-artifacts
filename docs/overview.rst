@@ -15,11 +15,8 @@ languages.
 
 .. tip::
 
-    Read more about the ideas behind BI-beacon on the concept page:
-
-    https://bi-beacon.com
-
-    Want to get one for your company? Visit the web shop, available here:
+    Read more about the ideas behind BI-Beacon, and order a Beacon for
+    your company here:
 
     https://bi-beacon.se
 
