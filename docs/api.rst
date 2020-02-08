@@ -9,7 +9,7 @@ There is only one endpoint! Hurray!
 
 And it looks something like this:
 
-   ``https://api.cilamp.se/v1/our-beautiful-monitor``
+   ``https://api.bi-beacon.com/v1/our-beautiful-monitor``
 
 BI-Beacons are controlled  via a RESTful web API,  but only indirectly
 via a state  server. This means it  is possible to
@@ -90,7 +90,7 @@ i.e. the request header Content-Type should be
 .. note:: At the moment, there is only one official beacon state server.
           It is available at this URL:
 
-             ``https://api.cilamp.se/v1``
+             ``https://api.bi-beacon.com/v1``
 
           The state server will be available as open source software
           in June 2019, see `Announcement: Open source server in June`_.
@@ -147,12 +147,12 @@ Sample Curl Call
 ~~~~~~~~~~~~~~~~
 
 The following will make a POST request to the BI-Beacon state server
-``api.cilamp.se`` to change the state of the channel named
+``api.bi-beacon.com`` to change the state of the channel named
 `testchannel` to green:
 
 ::
 
-    curl -X POST -F "color=#00FF00" "https://api.cilamp.se/v1/testchannel"
+    curl -X POST -F "color=#00FF00" "https://api.bi-beacon.com/v1/testchannel"
 
 
 Turn off Beacon

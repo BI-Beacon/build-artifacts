@@ -29,7 +29,7 @@ This endpoint serves as the controlling mechanism for *channel* with ID
 
 Here is an example of a complete endpoint:
 
-   ``https://api.cilamp.se/v1/our-beautiful-monitor``
+   ``https://api.bi-beacon.com/v1/our-beautiful-monitor``
 
 
 .. note::

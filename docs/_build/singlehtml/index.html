@@ -109,7 +109,7 @@ your company here:</p>
 <cite>channelkey</cite>.</p>
 <p>Here is an example of a complete endpoint:</p>
 <blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">https://api.cilamp.se/v1/our-beautiful-monitor</span></code></div></blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">https://api.bi-beacon.com/v1/our-beautiful-monitor</span></code></div></blockquote>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p><cite>channel key</cite> used to be called <cite>systemid</cite>, so if you see the old name
@@ -133,80 +133,6 @@ the coffee machine.</p>
 <div class="section" id="configure-via-wifi">
 <h3>Configure via WiFi<a class="headerlink" href="#configure-via-wifi" title="Permalink to this headline">¶</a></h3>
 <p>You can setup a BI-Beacon using a mobile or desktop device that connects to the Beacons own setup web page.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="18%" />
-<col width="82%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head" colspan="2">Instructions</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="_images/wifisetup_1.png"><img alt="image1" src="_images/wifisetup_1.png" style="width: 100%;" /></a></td>
-<td><ol class="first last arabic simple" start="0">
-<li>Find your WiFi credentials (password and WiFi name)</li>
-<li>Plugin your BI-Beacon (it turns blue)</li>
-<li>Disable cellular network (if on mobile device)</li>
-<li>Wait up to 30 seconds until BI-Beacon starts
-shifting between blue and green
-(this means setup mode is active)</li>
-</ol>
-</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="_images/wifisetup_2.png"><img alt="image2" src="_images/wifisetup_2.png" style="width: 100%;" /></a></td>
-<td><ol class="first last arabic simple" start="4">
-<li>Connect to WiFi “<code class="docutils literal notranslate"><span class="pre">BI-Beacon-A1B2C3</span></code>”
-(where <code class="docutils literal notranslate"><span class="pre">A1B2C3</span></code> is unique for your Beacon)</li>
-</ol>
-</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="_images/wifisetup_3.png"><img alt="image3" src="_images/wifisetup_3.png" style="width: 100%;" /></a></td>
-<td><ol class="first last arabic" start="5">
-<li><p class="first">Browse to BI-Beacon’s Setup Page:
-<a class="reference external" href="http://192.168.4.1">http://192.168.4.1</a></p>
-<p><strong>Note:</strong> <em>You may need to reload the page a
-couple of times to ‘wake up’ the web server</em></p>
-</li>
-<li><p class="first">Enter details</p>
-<p>a. WiFi name: the WiFi lamp should connect
-to (also known as SSID)</p>
-<p>b. WiFi password: password of WiFi to connect
-to (leave empty if no password)</p>
-<p><strong>Note:</strong> <em>If you bought your Beacon before
-September 2019, or have firmware version 0.89 or
-older, the Beacon will not handle % (per cent)
-in the WiFi password field due to a bug.</em></p>
-<p>c. Channel key: the string identifier controlling
-the beacon state
-(read more in the  <a class="reference internal" href="index.html#ref-api"><span class="std std-ref">API</span></a> section)</p>
-<p><em>Optional settings available from firmware version
-0.84 and upwards:</em></p>
-<p>d. State server: The channel state server to connect
-to.
-Default: api.cilamp.se</p>
-<p>e. Port: The TCP port to connect to on
-the channel state server. Default: 4040.</p>
-</li>
-</ol>
-</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="_images/wifisetup_4.png"><img alt="image4" src="_images/wifisetup_4.png" style="width: 100%;" /></a></td>
-<td><ol class="first last arabic simple" start="7">
-<li>This should then happen:<ol class="loweralpha">
-<li>The Beacon will turn <span class="blue">blue</span> meaning it
-is trying to connect to the router</li>
-<li>It will turn <span class="purple">purple</span> which means it is
-connecting to state server</li>
-<li>Then it will turn <span class="green">green</span>
-if all goes well!</li>
-</ol>
-</li>
-</ol>
-</td>
-</tr>
-</tbody>
-</table>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
 <p class="last">If you have any issues, please refer to <a class="reference external" href="https://cilamp.se/setup-guide/#1498746921926-4127dd4e-44a5">troubleshooting</a>.</p>
@@ -480,7 +406,7 @@ curl -X POST -F <span class="s2">&quot;color=#4400FF&quot;</span> -F <span class
 <p>There is only one endpoint! Hurray!</p>
 <p>And it looks something like this:</p>
 <blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">https://api.cilamp.se/v1/our-beautiful-monitor</span></code></div></blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">https://api.bi-beacon.com/v1/our-beautiful-monitor</span></code></div></blockquote>
 <p>BI-Beacons are controlled  via a RESTful web API,  but only indirectly
 via a state  server. This means it  is possible to
 control Beacons from any programming language that can make HTTPs POST
@@ -571,7 +497,7 @@ i.e. the request header Content-Type should be
 <p>At the moment, there is only one official beacon state server.
 It is available at this URL:</p>
 <blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">https://api.cilamp.se/v1</span></code></div></blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">https://api.bi-beacon.com/v1</span></code></div></blockquote>
 <p class="last">The state server will be available as open source software
 in June 2019, see <a class="reference external" href="https://bi-beacon.se/announcement-open-source-api-server-coming-in-june/">Announcement: Open source server in June</a>.</p>
 </div>
@@ -643,9 +569,9 @@ in June 2019, see <a class="reference external" href="https://bi-beacon.se/annou
 <div class="section" id="sample-curl-call">
 <h4>Sample Curl Call<a class="headerlink" href="#sample-curl-call" title="Permalink to this headline">¶</a></h4>
 <p>The following will make a POST request to the BI-Beacon state server
-<code class="docutils literal notranslate"><span class="pre">api.cilamp.se</span></code> to change the state of the channel named
+<code class="docutils literal notranslate"><span class="pre">api.bi-beacon.com</span></code> to change the state of the channel named
 <cite>testchannel</cite> to green:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">F</span> <span class="s2">&quot;color=#00FF00&quot;</span> <span class="s2">&quot;https://api.cilamp.se/v1/testchannel&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">F</span> <span class="s2">&quot;color=#00FF00&quot;</span> <span class="s2">&quot;https://api.bi-beacon.com/v1/testchannel&quot;</span>
 </pre></div>
 </div>
 </div>

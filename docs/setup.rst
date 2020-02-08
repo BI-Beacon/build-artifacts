@@ -81,7 +81,7 @@ You can setup a BI-Beacon using a mobile or desktop device that connects to the 
 |            |                                                        |
 |            |    d. State server: The channel state server to connect|
 |            |    to.                                                 |
-|            |    Default: api.cilamp.se                              |
+|            |    Default: api.bi-beacon.com                              |
 |            |                                                        |
 |            |    e. Port: The TCP port to connect to on              |
 |            |    the channel state server. Default: 4040.            |
