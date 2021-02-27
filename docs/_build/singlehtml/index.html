@@ -133,10 +133,80 @@ the coffee machine.</p>
 <div class="section" id="configure-via-wifi">
 <h3>Configure via WiFi<a class="headerlink" href="#configure-via-wifi" title="Permalink to this headline">¶</a></h3>
 <p>You can setup a BI-Beacon using a mobile or desktop device that connects to the Beacons own setup web page.</p>
-<div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<p class="last">If you have any issues, please refer to <a class="reference external" href="https://cilamp.se/setup-guide/#1498746921926-4127dd4e-44a5">troubleshooting</a>.</p>
-</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Instructions</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="_images/wifisetup_1.png"><img alt="image1" src="_images/wifisetup_1.png" style="width: 100%;" /></a></td>
+<td><ol class="first last arabic simple" start="0">
+<li>Find your WiFi credentials (password and WiFi name)</li>
+<li>Plugin your BI-Beacon (it turns blue)</li>
+<li>Disable cellular network (if on mobile device)</li>
+<li>Wait up to 30 seconds until BI-Beacon starts
+shifting between blue and green
+(this means setup mode is active)</li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="_images/wifisetup_2.png"><img alt="image2" src="_images/wifisetup_2.png" style="width: 100%;" /></a></td>
+<td><ol class="first last arabic simple" start="4">
+<li>Connect to WiFi “<code class="docutils literal notranslate"><span class="pre">BI-Beacon-A1B2C3</span></code>”
+(where <code class="docutils literal notranslate"><span class="pre">A1B2C3</span></code> is unique for your Beacon)</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="_images/wifisetup_3.png"><img alt="image3" src="_images/wifisetup_3.png" style="width: 100%;" /></a></td>
+<td><ol class="first last arabic" start="5">
+<li><p class="first">Browse to BI-Beacon’s Setup Page:
+<a class="reference external" href="http://192.168.4.1">http://192.168.4.1</a></p>
+<p><strong>Note:</strong> <em>You may need to reload the page a
+couple of times to ‘wake up’ the web server</em></p>
+</li>
+<li><p class="first">Enter details</p>
+<p>a. WiFi name: the WiFi lamp should connect
+to (also known as SSID)</p>
+<p>b. WiFi password: password of WiFi to connect
+to (leave empty if no password)</p>
+<p><strong>Note:</strong> <em>If you bought your Beacon before
+September 2019, or have firmware version 0.89 or
+older, the Beacon will not handle % (per cent)
+in the WiFi password field due to a bug.</em></p>
+<p>c. Channel key: the string identifier controlling
+the beacon state
+(read more in the  <a class="reference internal" href="index.html#ref-api"><span class="std std-ref">API</span></a> section)</p>
+<p><em>Optional settings available from firmware version
+0.84 and upwards:</em></p>
+<p>d. State server: The channel state server to connect
+to.
+Default: api.bi-beacon.com</p>
+<p>e. Port: The TCP port to connect to on
+the channel state server. Default: 4040.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="_images/wifisetup_4.png"><img alt="image4" src="_images/wifisetup_4.png" style="width: 100%;" /></a></td>
+<td><ol class="first last arabic simple" start="7">
+<li>This should then happen:<ol class="loweralpha">
+<li>The Beacon will turn <span class="blue">blue</span> meaning it
+is trying to connect to the router</li>
+<li>It will turn <span class="purple">purple</span> which means it is
+connecting to state server</li>
+<li>Then it will turn <span class="green">green</span>
+if all goes well!</li>
+</ol>
+</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="configure-via-usb-cable">
 <h3>Configure via USB cable<a class="headerlink" href="#configure-via-usb-cable" title="Permalink to this headline">¶</a></h3>
@@ -224,14 +294,14 @@ fail. It will then go into setup mode again.</p>
 
 <span class="cm">*/</span>
 
-<span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;https&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">querystring</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;querystring&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;https&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">querystring</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;querystring&#39;</span><span class="p">);</span>
 
-<span class="kr">class</span> <span class="nx">Beacon</span> <span class="p">{</span>
+<span class="kd">class</span> <span class="nx">Beacon</span> <span class="p">{</span>
 
   <span class="nx">constructor</span><span class="p">(</span><span class="nx">systemid</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">beaconHost</span> <span class="o">=</span> <span class="s1">&#39;api.bi-beacon.com&#39;</span><span class="p">,</span>
-    <span class="nx">apiVersion</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">apiVersion</span> <span class="o">=</span> <span class="mf">1</span><span class="p">,</span>
   <span class="p">}</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">_systemid</span> <span class="o">=</span> <span class="nx">systemid</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">_beaconHost</span> <span class="o">=</span> <span class="nx">beaconHost</span><span class="p">;</span>
@@ -246,17 +316,17 @@ fail. It will then go into setup mode again.</p>
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_post</span><span class="p">({</span> <span class="nx">color</span><span class="p">,</span> <span class="nx">period</span> <span class="p">});</span>
   <span class="p">}</span>
 
-  <span class="nx">async</span> <span class="nx">_post</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="sb">`/v</span><span class="si">${</span> <span class="k">this</span><span class="p">.</span><span class="nx">_apiVersion</span> <span class="si">}</span><span class="sb">/</span><span class="si">${</span> <span class="k">this</span><span class="p">.</span><span class="nx">_systemid</span> <span class="si">}</span><span class="sb">/`</span><span class="p">;</span>
-    <span class="kr">const</span> <span class="nx">postData</span> <span class="o">=</span> <span class="nx">querystring</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="k">async</span> <span class="nx">_post</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="sb">`/v</span><span class="si">${</span> <span class="k">this</span><span class="p">.</span><span class="nx">_apiVersion</span> <span class="si">}</span><span class="sb">/</span><span class="si">${</span> <span class="k">this</span><span class="p">.</span><span class="nx">_systemid</span> <span class="si">}</span><span class="sb">/`</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">postData</span> <span class="o">=</span> <span class="nx">querystring</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 
     <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resovle</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
       <span class="kd">let</span> <span class="nx">responseData</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 
-      <span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span>
+      <span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span>
         <span class="p">{</span>
           <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span>
-          <span class="nx">port</span><span class="o">:</span> <span class="mi">443</span><span class="p">,</span>
+          <span class="nx">port</span><span class="o">:</span> <span class="mf">443</span><span class="p">,</span>
           <span class="nx">host</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">_beaconHost</span><span class="p">,</span>
           <span class="nx">path</span><span class="p">,</span>
           <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
@@ -271,9 +341,9 @@ fail. It will then go into setup mode again.</p>
           <span class="c1">// The whole response has been received</span>
           <span class="nx">response</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
             <span class="k">try</span> <span class="p">{</span>
-              <span class="kr">const</span> <span class="nx">out</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">responseData</span><span class="p">);</span>
+              <span class="kd">const</span> <span class="nx">out</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">responseData</span><span class="p">);</span>
 
-              <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">===</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+              <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">===</span> <span class="mf">200</span><span class="p">)</span> <span class="p">{</span>
                 <span class="nx">resovle</span><span class="p">(</span><span class="nx">out</span><span class="p">);</span>
               <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
                 <span class="nx">reject</span><span class="p">(</span><span class="nx">out</span><span class="p">);</span>
